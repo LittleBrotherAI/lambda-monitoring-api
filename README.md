@@ -1,1 +1,19 @@
 # lambda-monitoring-api
+
+FUCK ME DAMN. okay, yesterday I did the following to make it work.
+
+```bash
+cd lilbro
+# git clone https://github.com/LittleBrotherAI/lambda-monitoring-api.git
+cd lambda-monitoring-api
+# python3 -m venv .venv
+source .venv/bin/activate
+# pip install fastapi uvicorn
+# pip freeze > requirements.txt
+pip install -r requirements.txt
+sudo su
+source .venv/bin/activate
+uvicorn main:app --host 0.0.0.0 --port 80
+```
+
+Then the server will be running! You can test the connection with `curl http://<ip-address>:80/` and should get a welcome message :)
