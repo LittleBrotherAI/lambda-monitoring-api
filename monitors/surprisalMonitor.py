@@ -1,4 +1,5 @@
 import pathlib
+import asyncio
 import nltk
 import requests
 import torch
