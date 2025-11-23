@@ -130,8 +130,8 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
         
     reversed_chunk_scores = chunk_scores.reverse()
     
-    weights = [discounting_factor ** i for i in range(len(chunk_scores))]
-    weighted_sum = sum(w * x for w, x in zip(weights, chunk_scores))
+    weights = [discounting_factor ** i for i in range(len(reversed_chunk_scores))]
+    weighted_sum = sum(w * x for w, x in zip(weights, reversed_chunk_scores))
     weight_sum = sum(weights)
     
     return weighted_sum / weight_sum
