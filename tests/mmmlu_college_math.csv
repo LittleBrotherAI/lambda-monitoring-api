@@ -1,0 +1,129 @@
+Unnamed: 0,Question,A,B,C,D,Answer,Subject,language
+0,"Ist k die Anzahl der reellen Lösungen der Gleichung e^x + x - 2 = 0 im Intervall [0, 1], und ist n die Anzahl der reellen Lösungen, die nicht in [0, 1] liegen. Welche der folgenden Aussagen ist wahr?",k = 0 und n = 1,k = 1 und n = 0,k = n = 1,k > 1,B,college_mathematics,DE_DE
+1,"Wie viele additive abelsche Gruppen G der Ordnung 16 haben bis zur Isomorphie die Eigenschaft, dass x + x + x + x = 0 für jedes x in G ?",0,1,2,3,D,college_mathematics,DE_DE
+2,"Angenommen, P ist die Menge der Polynome mit Koeffizienten in Z_5 und vom Grad kleiner oder gleich 7. Wenn der Operator D p(x) in P zu seiner Ableitung p′(x) sendet, wie groß sind dann der Nullraum n und der Bereich r von D?",n = 1 und r = 6,n = 1 und r = 7,n = 2 und r = 5,n = 2 und r = 6,D,college_mathematics,DE_DE
+3,Die kürzeste Entfernung von der Kurve xy = 8 zum Ursprung ist,4,8,16,2sqrt(2),A,college_mathematics,DE_DE
+4,"Es gibt 25 Koffer, von denen 5 beschädigt sind. Drei Koffer werden nach dem Zufallsprinzip ausgewählt. Wie groß ist die Wahrscheinlichkeit, dass genau 2 Koffer beschädigt sind?",2/69,1/30,2/23,12/125,C,college_mathematics,DE_DE
+5,"Ist (Z_{10} , +, x) der Ring der ganzen Zahlen modulo 10, und ist S die Teilmenge von Z_{10}, dargestellt durch {0, 2, 4, 6, 8}. Welche der folgenden Aussagen ist FALSCH?","(S, +, x) ist geschlossen unter Addition modulo 10.","(S, +, x) ist geschlossen unter Multiplikation modulo 10.","(S, +, x) hat eine Identität unter Addition modulo 10.","(S, +, x) hat keine Identität unter Multiplikation modulo 10.",D,college_mathematics,DE_DE
+6,"Eine 9 m lange Leiter lehnt auf ebenem Boden an einer senkrechten Wand. Während das untere Ende der Leiter mit einer konstanten Geschwindigkeit von 2 Metern pro Sekunde von der Wand wegbewegt wird, gleitet das obere Ende an der Wand entlang nach unten. Wie schnell, in Metern pro Sekunde gleitet das obere Ende der Leiter nach unten, wenn sich das obere Ende 3 Meter über dem Boden befindet?",12*sqrt(2),6*sqrt(2),4*sqrt(2),1/(2*sqrt(2)),C,college_mathematics,DE_DE
+7,"Betrachten Sie ein Segment der Länge 10. Die Punkte A und B werden zufällig so gewählt, dass A und B das Segment in drei kleinere Segmente unterteilen. Wie groß ist die Wahrscheinlichkeit, dass die drei kleineren Segmente die Seiten eines Dreiecks bilden können?",0,10 %,25 %,50 %,C,college_mathematics,DE_DE
+8,"Ist V ein endlich-dimensionaler reeller Vektorraum und ist P eine lineare Transformation von V, so dass P^2 = P ist. Welche der folgenden Aussagen müssen wahr sein?
+I. P ist invertierbar.
+II. P ist diagonalisierbar.
+III. P ist entweder die Identitätstransformation oder die Nulltransformation.",Keines,Nur I,Nur II,Nur III,C,college_mathematics,DE_DE
+9,Welche der folgenden Aussagen trifft zu?,Jeder kompakte Raum ist vollständig,Jeder vollständige Raum ist kompakt,Weder (a) noch (b)., Sowohl (a) als auch (b).,A,college_mathematics,DE_DE
+10,"Ein diskreter Graph ist vollständig, wenn es eine Kante gibt, die jedes beliebige Paar von Scheitelpunkten verbindet. Wie viele Kanten hat ein vollständiger Graph mit 10 Scheitelpunkten?",10,20,25,45,D,college_mathematics,DE_DE
+11,"Angenommen, X ist eine diskrete Zufallsvariable in der Menge der positiven ganzen Zahlen, so dass für jede positive ganze Zahl n die Wahrscheinlichkeit, dass X = n ist, 1/2^n beträgt. Wenn Y eine Zufallsvariable mit derselben Wahrscheinlichkeitsverteilung ist und X und Y unabhängig sind, wie groß ist dann die Wahrscheinlichkeit, dass der Wert von mindestens einer der Variablen X und Y größer als 3 ist?",1/64,15/64,1/4,3/8,B,college_mathematics,DE_DE
+12,"Sind V und W 4-dimensionale Unterräume eines 7-dimensionalen Vektorraums X. Welche der folgenden Dimensionen KANN NICHT die Dimension des Unterraums sein, in dem V sich mit W überschneidet?",0,1,2,3,A,college_mathematics,DE_DE
+13,"Eine große Klasse soll in Teams aufgeteilt werden und jeder Schüler muss genau einem Team angehören. Jeder Schüler lehnt jedoch drei seiner Klassenkameraden ab. Die Abneigung zwischen den Schülern muss nicht gegenseitig sein. Wenn die Teams nicht gleich groß sein müssen, wie viele müssen dann gebildet werden, damit kein Schüler der Teamkollege von jemandem ist, den er nicht mag?",4,7,10,13,B,college_mathematics,DE_DE
+14,"Sofia und Tess wählen jeweils zufällig eine der 10 ganzen Zahlen von 1 bis 10 aus. Wie groß ist die Wahrscheinlichkeit, dass keine der beiden gewählten Zahlen das Quadrat der anderen ist?","0,64","0,72","0,81","0,95",D,college_mathematics,DE_DE
+15,"Ist K eine nichtleere Teilmenge von R^n, wobei n > 1 ist. Welche der folgenden Aussagen muss wahr sein?
+I. Wenn K kompakt ist, dann ist jede stetige reellwertige Funktion, die auf K definiert ist, beschränkt.
+II. Wenn jede auf K definierte stetige reelle Funktion beschränkt ist, dann ist K kompakt.
+III. Wenn K kompakt ist, dann ist K zusammenhängend.",Nur I,Nur II,Nur III,Nur I und II,D,college_mathematics,DE_DE
+16,"Angenommen, V ist ein reeller Vektorraum der endlichen Dimension n. Nennen Sie die Menge der Matrizen von V in sich selbst M(V). T ist in M(V). Man betrachte die beiden Unterräume U = {X ∈ M(V) : TX = XT} und W = {TX - XT : X ∈ M(V)}. Welche der folgenden Aussagen muss WAHR sein?
+I. Wenn V eine Basis hat, die nur Eigenvektoren von T enthält, dann ist U = M(V).
+II. dim (U) + dim (W) = n^2
+III. dim (U) < n",Nur I,Nur II,Nur III,Nur I und II,B,college_mathematics,DE_DE
+17,"Wenn F eine konstante Einheitskraft ist, die parallel zum Vektor (-1, 0, 1) im xyz-Raum liegt. Wie groß ist die Arbeit, die F an einem Teilchen verrichtet, das sich zwischen der Zeit t=0 und der Zeit t=1 auf der durch (t, t^2, t^3) gegebenen Bahn bewegt?",-1/4,-1/(4sqrt(2)),0,sqrt(2),C,college_mathematics,DE_DE
+18,"X ist ein topologischer Raum, und A, B und C sind nichtleere Teilmengen von X, so dass A c B c C ist; d. h. A ist eine echte Teilmenge von B, und B ist eine echte Teilmenge von C. Welche der folgenden Aussagen ist (sind) wahr?
+I. Wenn A und C zusammenhängend sind, dann ist B zusammenhängend.
+II. Wenn A und C kompakt sind, dann ist auch B kompakt.
+III. Wenn A und C Hausdorff sind, dann ist auch B Hausdorff.",Nur I und II,Nur III,Nur I und III,"I, II und III",D,college_mathematics,DE_DE
+19,"Ist x_1 = 1 und x_(n+1) = sqrt(3+2x_n) für alle positiven ganzen Zahlen n. Wenn angenommen wird, dass {x_n} konvergiert, dann ist lim x_n =",3,e,sqrt(5),0,A,college_mathematics,DE_DE
+0,"Étant donné k le nombre de solutions réelles de l'équation e^x + x - 2 = 0 dans l'intervalle [0, 1], et n le nombre de solutions réelles qui ne sont pas dans [0, 1]. Lequel des énoncés suivants est vrai ?",k = 0 et n = 1,k = 1 et n = 0,k = n = 1,k > 1,B,college_mathematics,FR_FR
+1,"Jusqu'à l'isomorphisme, combien de groupes abéliens additifs G d'ordre 16 ont la propriété que x + x + x + x = 0 pour chaque x dans G ?",0,1,2,3,D,college_mathematics,FR_FR
+2,"Nous supposons que P soit l'ensemble des polynômes de coefficients dans Z_5 et de degré inférieur ou égal à 7. Si l'opérateur D envoie p(x) dans P à sa dérivée p′(x), quelles sont les dimensions de l'espace nul n et la plage r de D ?",n = 1 et r = 6,n = 1 et r = 7,n = 2 et r = 5,n = 2 et r = 6,D,college_mathematics,FR_FR
+3,La distance la plus courte de la courbe xy = 8 à l'origine est,4,8,16,2sqrt(2),A,college_mathematics,FR_FR
+4,Il y a 25 valises dont 5 sont endommagées. Trois valises sont sélectionnées de manière aléatoire. Quelle est la probabilité qu’exactement 2 soient endommagés ?,2/69,1/30,2/23,12/125,C,college_mathematics,FR_FR
+5,"Étant donné (Z_{10} , +, x) l'ensemble des entiers modulo 10, et étant donné S le sous-ensemble de Z_{10} représenté par {0, 2, 4, 6, 8}. Lequel des énoncés suivants est faux?","(S, +, x) est fermé sous l’addition modulo 10.","(S, +, x) est fermé sous la multiplication modulo 10.","(S, +, x) a une identité sous l’addition modulo 10.","(S, +, x) n'a pas d'identité sous la multiplication modulo 10.",D,college_mathematics,FR_FR
+6,"Une échelle de 9 mètres de long est placé contre un mur vertical sur un terrain plat. Quand l’extrémité inférieure de l’échelle s’éloigne du mur à une vitesse constante de 2 mètres par seconde, l’extrémité supérieure glisse vers le bas le long du mur. À quelle vitesse, en mètres par seconde, l'extrémité supérieure de l'échelle va-t-elle glisser vers le bas au moment où elle se trouve à 3 mètres au-dessus du sol ?",12*sqrt(2),6*sqrt(2),4*sqrt(2),1/(2*sqrt(2)),C,college_mathematics,FR_FR
+7,Considérons un segment de longueur 10. Les points A et B sont choisis de manière aléatoire de telle sorte que A et B divisent le segment en trois segments plus petits. Quelle est la probabilité que les trois plus petits segments forment les côtés d’un triangle ?,0,10 %,25 %,50 %,C,college_mathematics,FR_FR
+8,"Étant donné V un espace vectoriel réel de dimension finie et étant donné P une transformation linéaire de V telle que P^2 = P. Lequel des énoncés suivants doit être vrai ?
+I. P est inversible.
+II. P est diagonalisable.
+III. P est soit la transformation identité, ou la transformation zéro.",Aucune,I seulement,II seulement,III seulement,C,college_mathematics,FR_FR
+9,Lequel des énoncés suivants est vrai ?,Chaque espace compact est complet,Chaque espace complet est compact,Ni (a) ni (b)., (a) et (b).,A,college_mathematics,FR_FR
+10,Un graphe discret est complet s’il existe une arête reliant une paire de sommets. Combien d’arêtes possède un graphe complet avec 10 sommets ?,10,20,25,45,D,college_mathematics,FR_FR
+11,"Nous supposons que X soit une variable aléatoire discrète sur l'ensemble des entiers positifs telle que pour chaque entier positif n, la probabilité que X = n soit 1/2^n. Si Y est une variable aléatoire avec la même distribution de probabilité et que X et Y sont indépendants, quelle est la probabilité que la valeur d'au moins une des variables X et Y soit supérieure à 3 ?",1/64,15/64,1/4,3/8,B,college_mathematics,FR_FR
+12,Étant donnés V et W des sous-espaces à 4 dimensions d'un espace vectoriel X à 7 dimensions. Lequel des éléments suivants NE PEUT PAS être la dimension du sous-espace V intersectant W ?,0,1,2,3,A,college_mathematics,FR_FR
+13,"Une classe aux effectifs surchargés doit être divisée en équipes et chaque élève doit être membre d’exactement une équipe. Toutefois, chaque élève n'aime pas trois de ses camarades de classe. Les inimitiés entre élèves ne doivent pas nécessairement être réciproques. Si les équipes n’ont pas besoin d’être de taille égale, combien faut-il en créer pour qu’aucun élève ne soit le coéquipier de quelqu’un qu’il n’aime pas ?",4,7,10,13,B,college_mathematics,FR_FR
+14,Sofia et Tess choisiront chacune de manière aléatoire un des 10 entiers de 1 à 10. Quelle est la probabilité qu'aucun des deux entiers choisis ne soit le carré de l'autre ?,"0,64","0,72","0,81","0,95",D,college_mathematics,FR_FR
+15,"Étant donné K un sous-ensemble non vide de R^n, où n > 1. Lequel des énoncés suivants doit être vrai ?
+I. Si K est compact, alors toute fonction continue à valeur réelle définie sur K est bornée.
+II. Si toute fonction continue à valeur réelle définie sur K est bornée, alors K est compact.
+III. Si K est compact, alors K est connecté.",I seulement,II seulement,III seulement,I et II seulement,D,college_mathematics,FR_FR
+16,"Nous supposons que V soit un espace vectoriel réel de dimension finie n. Appelons l'ensemble des matrices de V en lui-même M(V). Étant donné T dans M(V). Nous considérons les deux sous-espaces U = {X ∈ M(V) : TX = XT} et W = {TX − XT : X ∈ M(V)}. Lequel des énoncés suivants doit être VRAI ?
+I. Si V a une base contenant uniquement des vecteurs propres de T alors U = M(V).
+II. dim (U) + dim (W) = n^2
+III. dim (U) < n",I seulement,II seulement,III seulement,I et II seulement,B,college_mathematics,FR_FR
+17,"Étant donné F une force unitaire constante parallèle au vecteur (-1, 0, 1) dans l'espace xyz. Quel est le travail effectué par F sur une particule qui se déplace le long du chemin donné par (t, t^2, t^3) entre le temps t = 0 et le temps t = 1 ?",-1/4,-1/(4sqrt(2)),0,sqrt(2),C,college_mathematics,FR_FR
+18,"Étant donné X un espace topologique, et soient A, B et C des sous-ensembles non vides de X tels que A c B c C ; c'est-à-dire que A est un sous-ensemble propre de B et B est un sous-ensemble propre de C. Lequel/Lesquels des énoncés suivants est/sont vrai(s) ?
+I. Si A et C sont connectés, alors B est connecté.
+II. Si A et C sont compacts, alors B est compact.
+III. Si A et C sont Hausdorff, alors B est Hausdorff.",I et II seulement,III seulement,I et III seulement,"I, II et III",D,college_mathematics,FR_FR
+19,"Étant donné x_1 = 1 et x_(n+1) = sqrt(3+2x_n) pour tous les entiers positifs n. Si nous supposons que {x_n} converge, alors lim x_n =",3,e,sqrt(5),0,A,college_mathematics,FR_FR
+0,"Seja k o número de soluções reais da equação e^x + x - 2 = 0 no intervalo [0, 1], e seja n o número de soluções reais que não estão em [0, 1]. Qual das seguintes afirmações é verdadeira?",k = 0 e n = 1,k = 1 e n = 0,k = n = 1,k > 1,B,college_mathematics,PT_BR
+1,"Até o isomorfismo, quantos grupos abelianos aditivos G de ordem 16 têm a propriedade de que x + x + x + x = 0 para cada x em G?",0,1,2,3,D,college_mathematics,PT_BR
+2,"Suponha que P seja o conjunto de polinômios com coeficientes em Z_5 e grau menor ou igual a 7. Se o operador D enviar p(x) em P para sua derivada p'(x), quais são as dimensões do núcleo n e do alcance r de D?",n = 1 e r = 6,n = 1 e r = 7,n = 2 e r = 5,n = 2 e r = 6,D,college_mathematics,PT_BR
+3,A menor distância da curva xy = 8 até a origem é,4,8,16,2raiz(2),A,college_mathematics,PT_BR
+4,"Existem 25 malas, das quais 5 estão danificadas. Três malas são selecionadas aleatoriamente. Qual é a probabilidade de exatamente duas estarem danificadas?",2/69,1/30,2/23,12/125,C,college_mathematics,PT_BR
+5,"Seja (Z_{10} , +, x) o anel dos inteiros de módulo 10, e seja S o subconjunto de Z_{10} representado por {0, 2, 4, 6, 8}. Qual das seguintes afirmações é FALSA?","(S, +, x) está fechado em adição de módulo 10.","(S, +, x) está fechado em multiplicação de módulo 10.","(S, +, x) tem uma identidade em adição de módulo 10.","(S, +, x) não tem identidade em multiplicação de módulo 10.",D,college_mathematics,PT_BR
+6,"Uma escada com 9 metros de comprimento está encostada em uma parede vertical no nível do solo. À medida que a extremidade inferior da escada é afastada da parede a uma taxa constante de 2 metros por segundo, a extremidade superior desliza para baixo ao longo da parede. Com que rapidez, em metros por segundo, a extremidade superior da escada deslizará para baixo no momento em que a extremidade superior estiver a 3 metros acima do solo?",12*raiz(2),6*raiz(2),4*raiz(2),1/(2*raiz(2)),C,college_mathematics,PT_BR
+7,Considere um segmento de comprimento 10. Os pontos A e B são escolhidos aleatoriamente de forma que A e B dividam o segmento em três segmentos menores. Qual é a probabilidade de os três segmentos menores poderem formar os lados de um triângulo?,0,10%,25%,50%,C,college_mathematics,PT_BR
+8,"Seja V um espaço vetorial real de dimensão finita e seja P uma transformação linear de V de forma que P^2 = P. Qual das seguintes afirmações deve ser verdadeira?
+I. P é invertível.
+II. P é diagonalizável.
+III. P é a transformação de identidade ou a transformação de zero.",Nenhum,I apenas,II apenas,III apenas,C,college_mathematics,PT_BR
+9,Qual das seguintes é verdadeira?,Todo espaço compacto é completo,Todo espaço completo é compacto,Nem (a) nem (b)., Tanto (a) quanto (b).,A,college_mathematics,PT_BR
+10,Um grafo discreto é completo se houver uma aresta conectando qualquer par de vértices. Quantas arestas tem um grafo completo com 10 vértices?,10,20,25,45,D,college_mathematics,PT_BR
+11,"Suponha que X seja uma variável aleatória discreta no conjunto dos números inteiros positivos de modo que, para cada inteiro positivo n, a probabilidade de X = n seja 1/2^n. Se Y for uma variável aleatória com a mesma distribuição de probabilidade e X e Y forem independentes, qual é a probabilidade de que o valor de pelo menos uma das variáveis X e Y seja maior que 3?",1/64,15/64,1/4,3/8,B,college_mathematics,PT_BR
+12,Sejam V e W subespaços de dimensão 4 de um espaço vetorial X de dimensão 7. Qual das seguintes NÃO pode ser a dimensão do subespaço V interseção W?,0,1,2,3,A,college_mathematics,PT_BR
+13,"Uma grande turma deve ser dividida em equipes e cada aluno deve ser membro de exatamente uma equipe. No entanto, cada aluno não gosta de três de seus colegas. A aversão entre os alunos não precisa ser mútua. Se as equipes não precisarem ter o mesmo tamanho, quantas devem ser criadas para que nenhum aluno seja colega de alguém que ele não gosta?",4,7,10,13,B,college_mathematics,PT_BR
+14,Sofia e Tess escolherão aleatoriamente um dos 10 inteiros de 1 a 10 cada uma. Qual é a probabilidade de que nenhum inteiro escolhido seja o quadrado do outro?,"0,64","0,72","0,81","0,95",D,college_mathematics,PT_BR
+15,"Seja K um subconjunto não vazio de R^n, onde n > 1. Qual das seguintes afirmações deve ser verdadeira?
+I. Se K é compacto, então toda função contínua de valores reais definida em K é limitada.
+II. Se toda função contínua de valores reais definida em K é limitada, então K é compacto.
+III. Se K é compacto, então K é conexo.",I apenas,II apenas,III apenas,I e II apenas,D,college_mathematics,PT_BR
+16,"Suponha que V seja um espaço vetorial real de dimensão finita n. Chame o conjunto de matrizes de V em si mesmo de M(V). Seja T em M(V). Considere os dois subespaços U = {X ∈ M(V) : TX = XT} e W = {TX − XT : X ∈ M(V)}. Qual das seguintes afirmações deve ser verdadeira?
+I. Se V tem uma base contendo apenas autovetores de T, então U = M(V).
+II. dim(U) + dim(W) = n^2
+III. dim(U) < n",I apenas,II apenas,III apenas,I e II apenas,B,college_mathematics,PT_BR
+17,"Seja F uma força constante unitária que é paralela ao vetor (-1, 0, 1) no espaço xyz. Qual é o trabalho realizado por F sobre uma partícula que se move ao longo do caminho dado por (t, t^2, t^3) entre o tempo t=0 e o tempo t=1?",-1/4,-1/(4raiz(2)),0,raiz(2),C,college_mathematics,PT_BR
+18,"Seja X um espaço topológico, e sejam A, B e C subconjuntos não vazios de X de forma que A c B c C; isto é, A é um subconjunto próprio de B, e B é um subconjunto próprio de C. Qual das seguintes afirmações é (são) verdadeira(s)?
+I. Se A e C são conexos, então B é conexo.
+II. Se A e C são compactos, então B é compacto.
+III. Se A e C são Hausdorff, então B é Hausdorff.",I e II apenas,III apenas,I e III apenas,"I, II e III",D,college_mathematics,PT_BR
+19,"Seja x_1 = 1 and x_(n+1) = raiz(3+2x_n) para todos os inteiros positivos n. Se for assumido que {x_n} converge, então lim x_n =",3,e,raiz(5),0,A,college_mathematics,PT_BR
+0,"设 k 为方程 e^x + x - 2 = 0 在区间 [0, 1] 内实数解的个数，设 n 为不在 [0, 1] 内的实数解的个数。以下哪项为真？",k = 0 和 n = 1,k = 1 和 n = 0,k = n = 1,k > 1,B,college_mathematics,ZH_CN
+1,直至同构，有多少 16 阶的可加性阿贝尔群 G 对 G 中的每个 x 具有x + x + x + x = 0 的性质？,0,1,2,3,D,college_mathematics,ZH_CN
+2,假设 P 是系数在 Z_5 中且次数小等于 7 的多项式集。若算子 D 把 P 中的 p(x) 变换成它的导数 p′(x)，则 D 的零空间 n 和值域 r 的维数是多少？,n = 1 和 r = 6,n = 1 和 r = 7,n = 2 和 r = 5,n = 2 和 r = 6,D,college_mathematics,ZH_CN
+3,曲线 xy = 8 到原点的最短距离是,4,8,16,2sqrt(2),A,college_mathematics,ZH_CN
+4,有 25 个手提箱，其中 5 个损坏了。随机抽取三个手提箱。恰好有 2 个是损坏的概率是多少？,Feb-69,30-Jan,23-Feb,12/125,C,college_mathematics,ZH_CN
+5,"设 (Z_{10} , +, x) 是以 10 为模的整数环，设 S 是 Z_{10} 的子集，表示为 {0, 2, 4, 6, 8}。以下哪项陈述为假？","在加法模 10 下，(S, +, x) 闭合。","在乘法模 10 下，(S, +, x) 闭合。","在加法模 10 下，(S, +, x) 有一个恒等元。","在乘法模 10 下，(S, +, x) 没有恒等元。",D,college_mathematics,ZH_CN
+6,一把 9 米长的梯子靠在平地上一堵垂直的墙上。当梯子的底部以每秒  2 米的恒定速率离开墙壁时，顶部沿着墙壁向下滑动。以米每秒为单位，梯子顶部在离地面 3 米时向下滑动的速率是多少？,12*sqrt(2),6*sqrt(2),4*sqrt(2),1/(2*sqrt(2)),C,college_mathematics,ZH_CN
+7,考虑一条长度为 10 的段。点 A 和点 B 是随机选择的点，它们将段分成三条更小的段。这三条更小的段构成三角形边的概率是多少？,0,10%,25%,50%,C,college_mathematics,ZH_CN
+8,"设 V 为有限维实向量空间，设 P 为 V 的线性变换，满足 P^2 = P。以下哪项一定为真？
+I. P 可逆。
+II. P 可对角化。
+III. P 是恒等变换或零变换。",无,仅 I,仅 II,仅 III,C,college_mathematics,ZH_CN
+9,以下哪项为真？,每个紧空间是完备的,每个完备空间是紧的,不是 (a) 也不是 (b)。, (a) 和 (b)。,A,college_mathematics,ZH_CN
+10,若有一条边连通任意一对顶点，则离散图是完备的。一个有 10 个顶点的完备图有多少条边？,10,20,25,45,D,college_mathematics,ZH_CN
+11,假设 X 是正整数集合的一个离散随机变量，且满足对于每个正整数 n，X = n 的概率是 1/2^n。若 Y 是具有相同概率分布的随机变量，且 X 和 Y 相互独立，则变量 X 和 Y 中至少有一个大于 3 的概率是多少？,Jan-64,15/64,4-Jan,8-Mar,B,college_mathematics,ZH_CN
+12,设 V 和 W 是 7 维向量空间 X 的 4 维子空间。下列哪个不可能是子空间 V 与 W 相交的维数？,0,1,2,3,A,college_mathematics,ZH_CN
+13,一个大班将被分成几个团队，每个学生必须是一个团队的成员。然而，每个学生都有三个不喜欢的同学。学生之间的不喜欢不一定是相互的。若团队的规模不需要相等，则必须创建多少个团队，才能确保没有学生成为他们不喜欢的同学的队友？,4,7,10,13,B,college_mathematics,ZH_CN
+14,Sofia 和 Tess 将从 1 到 10 的 10 个整数中随机选择一个。所选的每个整数都不是另一个的平方的概率是多少？,0.64,0.72,0.81,0.95,D,college_mathematics,ZH_CN
+15,"设 K 是 R^n 的非空子集，其中 n > 1。以下哪项陈述一定为真？
+I. 若 K 为紧集，则在 K 上定义的每个连续实值函数都是有界的。
+II. 若在 K 上定义的每个连续实值函数都是有界的，则 K 是紧集。
+III. 若 K 是紧集，则 K 是连通的。",仅 I,仅 II,仅 III,仅 I 和 II,D,college_mathematics,ZH_CN
+16,"假设 V 是有限维数 n 的实向量空间。称从 V 到自身的矩阵集合为M(V)。设 T 在 M(V) 中。考虑两个子空间 U = {X ∈ M(V) : TX = XT} 和 W = {TX − XT : X ∈ M(V)}。以下哪项一定为真？
+I. 若 V 有一个只包含 T 的特征向量的基，则 U = M(V)。
+II. dim (U) + dim (W) = n^2
+III. dim (U) < n",仅 I,仅 II,仅 III,仅 I 和 II,B,college_mathematics,ZH_CN
+17,"设 F 是 xyz 空间中与向量 (-1, 0, 1) 平行的恒单位力。F 对在时间 t=0 和时间 t=1 之间沿着(t, t^2, t^3)给出的路径运动的粒子做的功是多少？",-0.25,-1/(4sqrt(2)),0,sqrt(2),C,college_mathematics,ZH_CN
+18,"设 X 是一个拓扑空间，设 A、B 和 C 是 X 的非空子集，满足 A c B c C；即 A 是 B 的真子集，B 是 C 的真子集。以下哪（些）项一定为真？
+I. 若 A 和 C 是连通的，则 B 是连通的。
+II. 若 A 和 C 是紧集，则 B 是紧集。
+III. 若 A 和 C 是 Hausdorff 空间，则 B 是 Hausdorff 空间。",仅 I 和 II,仅 III,仅 I 和 III,I、II 和 III,D,college_mathematics,ZH_CN
+19,对于所有正整数 n，设 x_1 = 1 且 x_(n+1) = sqrt(3+2x_n)。若假设{x_n} 收敛，则 lim x_n =,3,e,sqrt(5),0,A,college_mathematics,ZH_CN

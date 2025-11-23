@@ -1,0 +1,101 @@
+Unnamed: 0,Question,A,B,C,D,Answer,Subject,language
+0,Was ist der Wert von p in 24 = 2 • p?,p = 4,p = 8,p = 12,p = 24,C,elementary_mathematics,DE_DE
+1,Frau Perez ist in 5 Tagen insgesamt 40 Meilen gefahren. Sie fuhr jeden Tag die gleiche Anzahl von Meilen. Wie viele Meilen ist Frau Perez jeden Tag gefahren?,5,7,8,9,C,elementary_mathematics,DE_DE
+2,Bestimme den Quotienten aus -40 : (-8).,5-Jan,-5,-0.2,5,D,elementary_mathematics,DE_DE
+3,"Eine Fußballmannschaft hat $90,00, um Fußbälle zu kaufen. Wenn ein Fußball 15,60 $ kostet, wie viele Fußbälle kann die Mannschaft maximal kaufen?",4,5,6,7,B,elementary_mathematics,DE_DE
+4,"Du gehst mit drei Freunden in ein Konzert. Die Gesamtkosten für vier Tickets betragen $112. Schreibe und löse eine Gleichung, um die Kosten für ein Ticket t zu finden.",4 t = 112; 448 $,4 t = 112; 28 $,t/4 = 112; 448 $,t/4 = 112; 28 $,B,elementary_mathematics,DE_DE
+5,Beantworte die Frage mit dem folgenden Ausdruck: 3 × [(2 × 6 – 5) + (8 : 4)] – 1 Was ist der Wert des Ausdrucks?,9,11,26,32,C,elementary_mathematics,DE_DE
+6,Schreibe 1 und 1/11 als ganze oder gemischte Zahl in der einfachsten Form.,"1,1/11",11-Nov,11-Dec,12-Nov,C,elementary_mathematics,DE_DE
+7,"Bestimme den Quotienten aus 2,16 : 0,06.","3,6",36,"0,01272","12,72",B,elementary_mathematics,DE_DE
+8,"Ermittle die Differenz von 142,76 – 16,5.","159,26","2,224","14,111","126,26",D,elementary_mathematics,DE_DE
+9,"Bestimme den Quotienten aus 5,04 : 0,7","0,72","0,702","100,571","7,2",D,elementary_mathematics,DE_DE
+10,"Jimmy und Kima gehen auf eine Reise. Sie werden drei Tage lang fahren. Am ersten Tag werden sie 182 Meilen fahren, am zweiten Tag werden sie 439 Meilen fahren und am dritten Tag werden sie 217 Meilen fahren. Welcher Ausdruck kommt der Schätzung am nächsten, wie viele Meilen Jimmy und Kima auf ihrer Reise zurücklegen werden?",150 + 400 + 200,200 + 400 + 200,200 + 450 + 200,200 + 500 + 200,C,elementary_mathematics,DE_DE
+11,Wie viel beträgt die Restmenge von 21 geteilt durch 7?,21,7,1,Keiner dieser Werte,D,elementary_mathematics,DE_DE
+12,Maddie wird in 7 Tagen insgesamt 56 Meilen mit dem Fahrrad fahren. Sie wird jeden Tag die gleiche Anzahl von Meilen zurücklegen. Wie viele Meilen wird Maddie insgesamt jeden Tag fahren?,8,9,49,63,A,elementary_mathematics,DE_DE
+13,"Bestimme die Zahl, welche die Aussage 48/88 = ?/11 wahr macht.",6,11,8,5,A,elementary_mathematics,DE_DE
+14,Was ist der günstigste Kauf?,"10 Stück Seife für $23,20","16 Stück Seife für $36,48","13 Stück Seife für $29,51","12 Stück Seife für $27,60",C,elementary_mathematics,DE_DE
+15,"Trishs Ruheherzfrequenz beträgt 50 Schläge pro Minute. Für jede Minute, die sie trainiert, erhöht sich ihre Herzfrequenz um 5 Schläge pro Minute. Wie lange benötigt sie, um eine Herzfrequenz von 120 Schlägen pro Minute zu erreichen?",5 Minuten,14 Minuten,34 Minuten,70 Minuten,B,elementary_mathematics,DE_DE
+16,"Bestimme den Zentralwert in der Datenmenge 23, 13, 18, 29, 32, 25.",18,24,25,29,B,elementary_mathematics,DE_DE
+17,"Jack pflückt 60 Äpfel von einem Apfelbaum. Er verwendet 12 davon für die Herstellung von Apfelmus. Die restlichen Äpfel legt er gleichmäßig in 6 Geschenkkörbe. Welche Gleichung kann verwendet werden, um die Anzahl der Äpfel a zu bestimmen, die Jack in jeden Geschenkkorb legt?",(60 : 6) – 12 = a,(60 – 12) : 6 = a,(60 – 6) – 12 = a,(60 + 12) : 6 = a,B,elementary_mathematics,DE_DE
+18,Eine bestimmte Karte verwendet einen Maßstab von 1 Zoll gleich 25 Meilen. Wie viele Meilen werden durch 5 Zoll auf dieser Karte dargestellt?,5,25,50,125,D,elementary_mathematics,DE_DE
+19,Vereinfache (2 + 5)^2 – 42.,7,16,30,33,A,elementary_mathematics,DE_DE
+0,Quelle est la valeur de p dans 24 = 2p ?,p = 4,p = 8,p = 12,p = 24,C,elementary_mathematics,FR_FR
+1,Mme Perez a parcouru en voiture un total de 40 miles en 5 jours. Elle a effectué le même nombre de miles chaque jour. Combien de miles Mme Perez a-t-elle parcourus chaque jour ?,5.0,7.0,8.0,9.0,C,elementary_mathematics,FR_FR
+2,Trouve le quotient de −40 ÷ (−8).,1 sur 5,−5,−1 sur 5,5.0,D,elementary_mathematics,FR_FR
+3,"Un joueur de football a 90,00 USD pour acheter des ballons de football. Si un ballon de football coûte 15,60 USD, combien de ballons de football l’équipe peut-elle acheter au maximum ?",4.0,5.0,6.0,7.0,B,elementary_mathematics,FR_FR
+4,Tu te rends à un concert avec trois amis. Le coût total pour quatre billets est de 112 USD. Pose et résous une équation pour trouver le coût d’un billet (t). ,4t = 112 ; 448 USD,4t = 112 ; 28 USD,t sur 4 = 112 ; 448 USD,t sur 4 = 112 ; 28 USD,B,elementary_mathematics,FR_FR
+5,Utilise l’expression ci-dessous pour répondre à la question. 3 × [(2 × 6 – 5) + (8 ÷ 4)] – 1 Quelle est la valeur de l’expression ?,9.0,11.0,26.0,32.0,C,elementary_mathematics,FR_FR
+6,Écris 1 et 1 sur 11 sous forme de nombre entier ou fractionné sous la forme la plus simple.,"1,1 sur 11",11 sur 11,12 sur 11,11 sur 12,C,elementary_mathematics,FR_FR
+7,"Trouve le quotient de 2,16 ÷ 0,06.","3,6",36.0,"0,01272","12,72",B,elementary_mathematics,FR_FR
+8,"Trouve le résultat de la soustraction 142,76 - 16,5.","159,26","2,224",14 111,"126,26",D,elementary_mathematics,FR_FR
+9,"Trouve le quotient de 5,04/0,7","0,72","0,702","10,0571","7,2",D,elementary_mathematics,FR_FR
+10,"Jimmy et Kima partent en voyage. Ils conduiront pendant trois jours. Le premier jour, ils parcourront 182 miles. Le deuxième jour, ils parcourront 439 miles. Le troisième jour, ils parcourront 217 miles. Quelle expression est l’estimation la plus proche du nombre de miles que Jimmy et Kima parcourront pendant leur voyage ? ",150 + 400 + 200,200 + 400 + 200,200 + 450 + 200,200 + 500 + 200,C,elementary_mathematics,FR_FR
+11,Quel est le reste de 21 divisé par 7 ?,21.0,7.0,1.0,Aucune de ces propositions,D,elementary_mathematics,FR_FR
+12,Maddie prendra son vélo pour parcourir un total de 56 miles sur 7 jours. Elle conduira le même nombre de miles chaque jour. Quel est le nombre total de miles que Maddie parcourra chaque jour ?,8.0,9.0,49.0,63.0,A,elementary_mathematics,FR_FR
+13,Trouve le nombre qui vérifie l’énoncé 48 sur 88 =  ? sur 11.,6.0,11.0,8.0,5.0,A,elementary_mathematics,FR_FR
+14,Quelle est la meilleure affaire ?,"10 barres de savon pour 23,20 USD","16 barres de savon pour 36,48 USD","13 barres de savon pour 29,51 USD","12 barres de savon pour 27,60 USD",C,elementary_mathematics,FR_FR
+15,"Le rythme cardiaque de Trish au repos est de 50 battements par minute. Pour chaque minute d’exercice, son rythme cardiaque augmente de 5 battements par minute. Combien de temps lui faudra-t-il pour atteindre un rythme cardiaque de 120 battements par minute ? ",5 minutes,14 minutes,34 minutes,70 minutes,B,elementary_mathematics,FR_FR
+16,"Trouve la médiane dans l’ensemble de données 23, 13, 18, 29, 32, 25.",18.0,24.0,25.0,29.0,B,elementary_mathematics,FR_FR
+17,"Jack cueille 60 pommes sur un pommier. Il en utilise 12 pour faire de la compote. Il répartit les pommes restantes à parts égales dans 6 paniers cadeaux. Quelle équation peut être utilisée pour déterminer le nombre de pommes (a), que Jack met dans chaque panier cadeau ? ",(60/6)—12=a,(60—12)/6=a,(60-6)-12=a,(60+12)/6=a,B,elementary_mathematics,FR_FR
+18,Une certaine carte utilise l’échelle de 1 pouce est égal à 25 miles. Combien de miles sont représentés par 5 pouces sur cette carte ?,5.0,25.0,50.0,125.0,D,elementary_mathematics,FR_FR
+19,Simplifie (2 + 5)^2 − 42.,7.0,16.0,30.0,33.0,A,elementary_mathematics,FR_FR
+0,"Je, thamani ya p ni ipi kwa 24 = 2p?",p = 4,p = 8,p = 12,p = 24,C,elementary_mathematics,SW_KE
+1,"Bi. Perez aliendesha gari jumla ya maili 40 kwa siku 5. Aliendesha maili hizo kila siku. Je, ni maili ngapi Bi.Perez aliweza kuendesha gari kwa siku moja?",5,7,8,9,C,elementary_mathematics,SW_KE
+2,Tafuta mgawo wa -40 ÷ (-8).,1 juu ya 5,-5,-1 juu ya 5,5,D,elementary_mathematics,SW_KE
+3,"Timu ya kandanda iko na $90.00 za kununua mipira. Ikiwa bei ya mpira mmoja ni $15.60, je ni idadi gani kubwa zaidi ya mipira ya kandanda ambayo timu inaweza kununua?",4,5,6,7,B,elementary_mathematics,SW_KE
+4,Wewe na marafiki watatu mnaenda kwenye tamasha. Gharama ya jumla ya tikiti nne ni $112. Andika na usuluhishe mlinganyo ili kupata gharama ya tikiti moja ambayo ni t.,4t = 112; $448,4t = 112; $28,t juu ya 4 = 112; $448,t juu ya 4 = 112; $28,B,elementary_mathematics,SW_KE
+5,Tumia maonyesho yalio hapa chini kujibu swali. 3 × [(2 × 6 – 5) + (8 ÷ 4)] – 1 Nini thamani ya maonyesho?,9,11,26,32,C,elementary_mathematics,SW_KE
+6,Andika 1 na 1 juu ya 11 kama nambari nzima au nambari iliyochanganywa kwa njia rahisi zaidi.,1.1 juu ya 11,11 juu ya 11,12 juu ya 11,11 juu ya 12,C,elementary_mathematics,SW_KE
+7,Tafuta mgawo wa 2.16 ÷ 0.06.,3.6,36,0.01272,12.72,B,elementary_mathematics,SW_KE
+8,Tafuta tofauti ya 142.76 - 16.5.,159.26,2.224,"14,111",126.26,D,elementary_mathematics,SW_KE
+9,Tafuta mgawo wa 5.04/0.7,0.72,0.702,10.0571,7.2,D,elementary_mathematics,SW_KE
+10,Jimmy na Kima wanaenda safari. Wataendesha gari kwa siku tatu. Siku ya kwanza wataendesha gari maili 182. Siku ya pili wataendesha maili 439. Siku ya tatu wataendesha gari maili 217. Ni hesabu ipi ambayo makadirio yake ni ya karibu zaidi ya maili ambazo Jimmy na Kima wataendesha gari kwenye safari yao?,150 + 400 + 200,200 + 400 + 200,200 + 450 + 200,200 + 500 + 200,C,elementary_mathematics,SW_KE
+11,"Je, ni ngapi itakayo baki ukigawanisha 21 kwa 7?",21,7,1,Hakuna kati ya hizi,D,elementary_mathematics,SW_KE
+12,Maddie ataendesha baiskeli yake jumla ya maili 56 kwa siku 7. Ataendesha idadi sawia ya maili kila siku. Ni jumla ya maili ngapi ambazo Maddie ataendesha kila siku?,8,9,49,63,A,elementary_mathematics,SW_KE
+13,Tafuta nambari inayofanya kauli 48 juu ya 88 = ? juu ya 11 kweli.,6,11,8,5,A,elementary_mathematics,SW_KE
+14,Ni ipi bora kununua?,Baa 10 za sabuni kwa $23.20,Baa 16 za sabuni kwa $36.48,Baa 13 za sabuni kwa $29.51,Baa 12 za sabuni kwa $27.60,C,elementary_mathematics,SW_KE
+15,"Kiwango cha mapigo ya moyo cha kupumzika cha Trish ni midundo 50 kwa dakika. Kwa kila dakika anayofanya mazoezi, mapigo ya moyo wake huongezeka mara 5 kwa dakika. Je, itamchukua muda gani kufikia mapigo ya moyo ya midundo 120 kwa dakika?",Dakika 5,Dakika 14,Dakika 34,Dakika 70,B,elementary_mathematics,SW_KE
+16,"Tafuta wastani katika seti ya data 23, 13, 18, 29, 32, 25.",18,24,25,29,B,elementary_mathematics,SW_KE
+17,"Jack anachukua tufaha 60 kutoka kwa mti wa tufaha. Anatumia 12 kati yao kutengeneza maapulo. Anaweka maapulo yaliyobaki kwa usawa katika vikapu 6 vya zawadi. Ni mlinganyo upi unaweza kutumika kubainisha idadi ya tufaha, a, ambayo Jack anaweka kwenye kila kikapu cha zawadi?",(60/6)—12=a,(60—12)/6=a,(60-6)-12=a,(60+12)/6=a,B,elementary_mathematics,SW_KE
+18,Ramani fulani hutumia kipimo cha nchi 1 sawa na maili 25. Ni maili ngapi zinazowakilishwa na nchi 5 kwenye ramani hii?,5,25,50,125,D,elementary_mathematics,SW_KE
+19,Rahisisha (2 + 5)^2 − 42.,7,16,30,33,A,elementary_mathematics,SW_KE
+0,Qual é o valor de p em 24 = 2p?,p = 4,p = 8,p = 12,p = 24,C,elementary_mathematics,PT_BR
+1,Srta. Perez dirigiu um total de 40 milhas em 5 dias. Ela dirigiu o mesmo número de milhas cada dia. Quantas milhas a Srta. Perez dirigiu por dia?,5.0,7.0,8.0,9.0,C,elementary_mathematics,PT_BR
+2,Calcule o quociente de −40 ÷ (−8).,1 dividido por 5,−5,−1 dividido por 5,5.0,D,elementary_mathematics,PT_BR
+3,"Um time de futebol tem $ 90,00 para comprar bolas de futebol. Se uma bola custa $ 15,60, qual o maior número de bolas que o time pode comprar?",4.0,5.0,6.0,7.0,B,elementary_mathematics,PT_BR
+4,Você e três amigos vão a um show. O custo total de quatro ingressos é $ 112. Escreva e resolva a equação para encontrar o custo de um ingresso “i”.,4i = 112; $ 448,4i = 112; $ 28,i dividido por 4 = 112; $ 448,i dividido por 4 = 112; $ 28,B,elementary_mathematics,PT_BR
+5,Use a expressão abaixo para responder à questão. 3 × [(2 × 6 – 5) + (8 ÷ 4)] – 1 Qual é o valor da expressão?,9.0,11.0,26.0,32.0,C,elementary_mathematics,PT_BR
+6,Escreva 1 e 1 dividido por 11 como número inteiro ou número misto em sua forma mais simples.,"1,1 dividido por 11",11 dividido por 11,12 dividido por 11,11 dividido por 12,C,elementary_mathematics,PT_BR
+7,"Calcule o quociente de 2,16 ÷ 0,06.","3,6",36.0,"0,01272","12,72",B,elementary_mathematics,PT_BR
+8,"Calcule a diferença de 142,76 – 16,5.","159,26","2,224",14.111,"126,26",D,elementary_mathematics,PT_BR
+9,"Calcule o quociente de 5,04/0,7","0,72","0,702","10,0571","7,2",D,elementary_mathematics,PT_BR
+10,"Jimmy e Kima vão sair de viajem. Vão dirigir por três dias. No primeiro dia, dirigirão 182 milhas. No segundo dia, 439 milhas. No terceiro, 217 milhas. Que expressão é a estimativa mais próxima da quantidade de milhas que Jimmy e Kima dirigirão na viagem?",150 + 400 + 200,200 + 400 + 200,200 + 450 + 200,200 + 500 + 200,C,elementary_mathematics,PT_BR
+11,Qual é o resto de 21 dividido por 7?,21.0,7.0,1.0,Nenhuma das anteriores,D,elementary_mathematics,PT_BR
+12,Maddie vai andar em sua bicicleta um total de 56 milhas durante 7 dias. E vai percorrer o mesmo número de milhas a cada dia. Qual é o total número de milhas que Maddie vai percorrer por dia?,8.0,9.0,49.0,63.0,A,elementary_mathematics,PT_BR
+13,Encontre o número que torna a afirmação 48 dividido por 88 = ? dividido por 11 verdadeira.,6.0,11.0,8.0,5.0,A,elementary_mathematics,PT_BR
+14,Qual a melhor compra?,"10 barras de sabão por $ 23,20","16 barras de sabão por $ 36,48","13 barras de sabão por $ 29,51","12 barras de sabão por $27,60",C,elementary_mathematics,PT_BR
+15,"A frequência cardíaca em repouso da Trisha é de 50 batimentos por minuto. Para cada minuto que ela se exercita, seu batimento cardíaco aumenta em 5 batimentos por minuto. Quanto tempo levará para ela alcançar 120 batimentos por minuto?",5 minutos,14 minutos,34 minutos,70 minutos,B,elementary_mathematics,PT_BR
+16,"Calcule a média na série de dados 23, 13, 18, 29, 32, 25.",18.0,24.0,25.0,29.0,B,elementary_mathematics,PT_BR
+17,"Jack colheu 60 maçãs de uma macieira. Usou 12 delas para fazer purê de maçã. As maçãs restantes foram colocadas em 6 cestas de presente. Qual seria a equação para determinar o número de maçãs, “m”, que Jack colocou em cada cesta de presente?",(60/6)—12=m,(60—12)/6=m,(60-6)-12=m,(60+12)/6=m,B,elementary_mathematics,PT_BR
+18,Um determinado mapa usa uma escala de 1 polegada igual a 25 milhas. Quantas milhas são representadas por 5 polegadas nesse mapa?,5.0,25.0,50.0,125.0,D,elementary_mathematics,PT_BR
+19,Simplifique (2 + 5)^2 − 42.,7.0,16.0,30.0,33.0,A,elementary_mathematics,PT_BR
+0,当 24 = 2p 时，p 的值是多少？,p = 4,p = 8,p = 12,p = 24,C,elementary_mathematics,ZH_CN
+1,Perez 女士在 5 天内总共开了 40 英里。她每天都驾驶同样的里程数。Perez 女士每天开多少英里的车？,5,7,8,9,C,elementary_mathematics,ZH_CN
+2,求 −40 ÷ (−8) 的商。,5-Jan,−5,−1/5,5,D,elementary_mathematics,ZH_CN
+3,一个足球队有 90.00 美元用来买足球。如果一个足球的价格是 15.60 美元，那么该球队最多能买多少个足球？,4,5,6,7,B,elementary_mathematics,ZH_CN
+4,你和三个朋友去听音乐会。四张票的总价是 112 美元。写出并解一个方程，求一张票的价格 t。,4t = 112；448 美元,4t = 112；28 美元,T/4 = 112；448 美元,T/4 = 112；28 美元,B,elementary_mathematics,ZH_CN
+5,用下面的表达式回答问题。3 × [(2 × 6 – 5) + (8 ÷ 4)] – 1 这个表达式的值是多少？,9,11,26,32,C,elementary_mathematics,ZH_CN
+6,把 1 又 1/11 写成整数或最简形式的混合数。,1.1/11,11-Nov,11-Dec,12-Nov,C,elementary_mathematics,ZH_CN
+7,求 2.16 ÷ 0.06 的商。,3.6,36,0.01272,12.72,B,elementary_mathematics,ZH_CN
+8,求 142.76 - 16.5 的差。,159.26,2.224,"14,111",126.26,D,elementary_mathematics,ZH_CN
+9,求出 5.04/0.7 的商,0.72,0.702,10.0571,7.2,D,elementary_mathematics,ZH_CN
+10,Jimmy 和 Kima 要去旅行。他们将开车三天。第一天他们将行驶 182 英里。第二天他们将行驶 439 英里。第三天，他们将行驶 217 英里。哪个表达式最接近 Jimmy 和 Kima 在他们的旅行中要开的英里数的估计值？,150 + 400 + 200,200 + 400 + 200,200 + 450 + 200,200 + 500 + 200,C,elementary_mathematics,ZH_CN
+11,21 除以 7 的余数是多少？,21,7,1,这些都不是,D,elementary_mathematics,ZH_CN
+12,Maddie 将在 7 天内骑自行车总共 56 英里。她每天将骑同样的英里数。Maddie 每天骑行的总英里数是多少？,8,9,49,63,A,elementary_mathematics,ZH_CN
+13,求使表达式 48/88 = ？/11 成立的数字。,6,11,8,5,A,elementary_mathematics,ZH_CN
+14,下面哪个选项最划算？,10 块肥皂 23.20 美元,16 块肥皂 36.48 美元,13 块肥皂 29.51 美元,12 块肥皂 27.60 美元,C,elementary_mathematics,ZH_CN
+15,Trish 的静息心率是每分钟 50 次。她每运动一分钟，她的心率每分钟增加 5 次。她需要多长时间才能达到每分钟 120 次的心率？,5 分钟,14 分钟,34 分钟,70 分钟,B,elementary_mathematics,ZH_CN
+16,求数据集 23、13、18、29、32、25 的中位数。,18,24,25,29,B,elementary_mathematics,ZH_CN
+17,Jack 从一棵苹果树上摘了 60 个苹果。他用其中的 12 个苹果来做苹果酱。他把剩下的苹果平均放在 6 个礼品篮里。哪个方程可以用来确定 Jack 放入每个礼品篮的苹果的数量 a？,(60/6)—12=a,(60—12)/6=a,(60-6)-12=a,(60+12)/6=a,B,elementary_mathematics,ZH_CN
+18,某幅地图使用 1 英寸等于 25 英里的比例尺。在这张地图上 5 英寸代表多少英里？,5,25,50,125,D,elementary_mathematics,ZH_CN
+19,化简 (2 + 5)^2 − 42。,7,16,30,33,A,elementary_mathematics,ZH_CN
