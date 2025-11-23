@@ -23,7 +23,7 @@ async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, r
         }
     ]
     
-    little_brother_response = call_little_brother(messages=messages, thinking="high") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
+    little_brother_response = call_little_brother(messages=messages, thinking="low") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
 
     # compute your similarities
     similarity = answer_similarity(response, little_brother_response)
