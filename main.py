@@ -12,6 +12,15 @@ class LLMResponse(BaseModel):
     model_cot: str
     model_answer: str
 
+class BigBrotherReponse(BaseModel):
+    prompt: str
+    reasoning: str
+    answer: str
+
+@app.post("/")
+async def create_item(bigBrotherRepoonse: BigBrotherReponse):
+    return {"message": "Big Brother Is Watching!"}
+
 @app.get("/")
 def hello():
     return {"message": "Hello world!"}
