@@ -156,12 +156,12 @@ async def call_consistency_nli_monitor(url:str, prompt:str, cot:str, response:st
     requests.post(url, json={"label": label})
     return label
     
-async def call_consistency_judge(url:str, prompt:str, cot:str, response:str):
-    messages = [
-        {
-            "role":"system", ""
-        }
-    ]
+# async def call_consistency_judge(url:str, prompt:str, cot:str, response:str):
+#     messages = [
+#         {
+#             "role":"system", ""
+#         }
+#     ]
     
     
     
