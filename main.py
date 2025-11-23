@@ -19,18 +19,20 @@ class BigBrotherReponse(BaseModel):
     prompt: str
     reasoning: str
     answer: str
+    message_id: str
     callback_urls: CallbackUrls
 
 @app.post("/api/monitor")
-async def create_item(bigBrotherReponse: BigBrotherReponse):
-    prompt = bigBrotherReponse.prompt
-    reasoning = bigBrotherReponse.reasoning
-    answer = bigBrotherReponse.answer
-    callback_urls = bigBrotherReponse.callback_urls
+async def create_item(bigBrotherResponse: BigBrotherReponse):
+    prompt = bigBrotherResponse.prompt
+    reasoning = bigBrotherResponse.reasoning
+    answer = bigBrotherResponse.answer
+    message_id = bigBrotherResponse.message_id
+    callback_urls = bigBrotherResponse.callback_urls
 
-    asyncio.create_task(call_consistency_language_monitor(callback_urls.consistency_language, prompt, reasoning, answer))
-    asyncio.create_task(call_consistency_semantics_monitor(callback_urls.consistency_semantics, prompt, reasoning, answer))
-    asyncio.create_task(call_consistency_nli_monitor(callback_urls.consistency_nli, prompt, reasoning, answer))
+    # asyncio.create_task(call_consistency_language_monitor(callback_urls.consistency_language, prompt, reasoning, answer))
+    # asyncio.create_task(call_consistency_semantics_monitor(callback_urls.consistency_semantics, prompt, reasoning, answer))
+    asyncio.create_task(call_consistency_nli_monitor(message_id, callback_urls.consistency_nli, prompt, reasoning, answer))
 
     #call_judge_factcheck_llm(callback_urls.consistency_nli, prompt, reasoning, answer)
     #call_judge_adversarial_llm(callback_urls.consistency_nli, prompt, reasoning, answer)

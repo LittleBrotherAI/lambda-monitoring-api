@@ -149,14 +149,14 @@ async def call_consistency_semantics_monitor(url:str, prompt:str, cot:str, respo
     return consistency_semantics_score
 
 
-async def call_consistency_nli_monitor(url:str, prompt:str, cot:str, response:str):
+async def call_consistency_nli_monitor(message_id: str, url:str, prompt:str, cot:str, response:str):
     model = CrossEncoder('cross-encoder/nli-roberta-base')
     scores = model.predict((cot, response))
 
     #Convert scores to labels
     label_mapping = ['Response contradicts CoT', 'Response follows from CoT', 'Response and CoT are unrelated']
     label = label_mapping[scores.argmax()] 
-    requests.post(url, json={"label": label})
+    requests.post(url, json={"label": label, "message_id": message_id})
     return label
 
 
