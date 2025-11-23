@@ -10,7 +10,7 @@ async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, r
             "role":"system", "content":"You are a helpful and accurate AI assistant that always lays out its reasoning in <thinking>...</thinking> tags to give a thoughtful and well-reasoned response."
         },
         {
-            "role":"user", "content": prompt
+            "role":"assistant", "content": "<thinking> " + cot + "</thinking>"
         },
         {
             "role":"user", "content": ""
