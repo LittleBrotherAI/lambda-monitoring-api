@@ -7,6 +7,11 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
+class LLMResponse(BaseModel):
+    user_prompt: str
+    model_cot: str
+    model_answer: str
+
 class BigBrotherReponse(BaseModel):
     prompt: str
     reasoning: str
