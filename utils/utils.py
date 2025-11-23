@@ -45,12 +45,19 @@ def sample_random_snippets(input_string:str, number_snippets:int = 5, min_length
     snippets = []
     for _ in range(number_snippets):
         
-        start_pos = random.randint(0, text_length-min_length)
-        
-        snippet_length = random.randint(min_length, text_length-start_pos)
+        if text_length <= min_length:
+            start_pos = 0
+            snippet_length = text_length
+        else:
+            start_pos = random.randint(0, text_length-min_length)
+            
+            snippet_length = random.randint(min_length, text_length-start_pos)
         
         snippet_words = words[start_pos:start_pos+snippet_length]
         snippet = " ".join(snippet_words)
         snippets.append(snippet)
     
     return snippets
+
+if __name__ == "__main__":
+    sample_random_snippets("I am")
