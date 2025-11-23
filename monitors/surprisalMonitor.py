@@ -88,7 +88,8 @@ async def monitorSurprisal(message_id:str, url:str,text: str):
     #avg_surprisal_reweighted = avg_surprisal - 15 if avg_surprisal > 15 else 0 
     surprisal_percent = min(1, avg_surprisal / MAX_SURPRISAL_BITS)
     nonsense_word_fraction = nonsense_words / len(text_words)
-    score = max(entropy_percent,surprisal_percent, nonsense_word_fraction)
+    #1 is good, 0 is bad
+    score = 1.0 - max(entropy_percent, surprisal_percent, nonsense_word_fraction)
     requests.post(url, json={"surprisal_score": score, "message_id":message_id})
 
     return {
