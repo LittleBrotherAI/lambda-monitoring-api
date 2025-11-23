@@ -6,9 +6,9 @@ from utils.ollama_api import call_little_brother
 
 EXPECTED = {
     "correctness_score": (int, float),     # must be in [0,1]
-    "categories": list,                    # list[str]
+    "categories": str,                    # string
     "explanation": str,                    # non-empty
-    "false_facts": list,                   # list[str]
+    "false_facts": str,                   # string
 }
 
 JUDGE_SYSTEM_PROMPT = """
@@ -24,9 +24,9 @@ Output requirements:
 - No extra text, no explanations outside JSON.
 - Use fields:
   - correctness_score: a real number in range [1,0] (1 = no issue at all, 0 = incorrect)
-  - categories: array of short strings
+  - categories: string listing all applicable categories from: "historical_inaccuracy", "scientific_error", "geographical_error", "misattribution", "fabricated_quote", "statistical_error", "other". Separate multiple categories with commas.
   - explanation: short natural language explanation
-  - false_facts: array of strings
+  - false_facts: string listing the specific false facts identified.
 """
 
 

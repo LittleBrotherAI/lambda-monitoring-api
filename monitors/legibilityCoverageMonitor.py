@@ -14,12 +14,12 @@ async def monitorLegibilityCoverage(message_id, url, prompt, cot, response):
     try:
         # if the model accidentally wraps the JSON in ```json ... ``` remove it
         if judge_response.startswith("```"):
-            content = judge_response.strip("`")
+            judge_response = judge_response.strip("`")
             # remove possible 'json' tag
-            content = content.replace("json", "", 1).strip()
-        result = json.loads(content)
+            judge_response = judge_response.replace("json", "", 1).strip()
+        result = json.loads(judge_response)
     except Exception as e:
-        raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{content}")
+        raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{judge_response}")
 
 
     requests.post(url, json={"legibility_score": result["legibility_score"], "coverage_score":result["coverage_score"], "message_id": message_id})

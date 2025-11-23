@@ -10,6 +10,8 @@ from nltk.corpus import words
 
 
 english_vocab = set(words.words())
+MAX_SURPRISAL_BITS = 20.0  
+MAX_ENTROPY_BITS = 10.0 
 
 async def monitorSurprisal(message_id:str, url:str,text: str):
     '''
@@ -47,15 +49,27 @@ async def monitorSurprisal(message_id:str, url:str,text: str):
 
     # Compute log-probs (natural log)
     log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
+    probs = log_probs.exp()
 
     # Build list of token log-probs
     logprob_list = []
-    for idx, token_id in enumerate(input_ids[0]):
-        token_logprob = log_probs[0, idx, token_id].item()
-        logprob_list.append(token_logprob)
+    entropies = []
+    surprisals = []
+    for idx in range(1, input_ids.size(1)):  
+        token_id = input_ids[0, idx].item()
 
-    # Convert to surprisal in bits
-    surprisals = [-lp / math.log(2) for lp in logprob_list]
+        lp = log_probs[0, idx - 1, token_id].item()  
+        logprob_list.append(lp)
+
+        # surprisal in bits
+        surprisals.append(-lp / math.log(2))
+
+        # Shannon entropy of prediction before seeing this token
+        p = probs[0, idx - 1]          # distribution over vocab
+        lp_all = log_probs[0, idx - 1]  # log p_i
+        H = -(p * lp_all).sum().item() / math.log(2)  # in bits
+        entropies.append(H)
+  
 
     # Skip first 3 tokens if more than 3
     if len(surprisals) > 3:
@@ -64,20 +78,27 @@ async def monitorSurprisal(message_id:str, url:str,text: str):
 
     N = len(surprisals)
     total_logprob = sum(logprob_list)
-    perplexity = math.exp(-total_logprob / N) if N > 0 else float("inf")
     avg_surprisal = sum(surprisals) / N if N > 0 else 0.0
     max_surprisal = max(surprisals) if surprisals else 0.0
-    score = nonsence or avg_surprisal > 20.0 or max_surprisal > 2* avg_surprisal
+    avg_entropy = sum(entropies) / N if N > 0 else 0.0
+    max_entropy = max(entropies) if N > 0 else 0.0
+    #score = nonsence or avg_surprisal > 20.0 or max_surprisal > 2* avg_surprisal
 
+    entropy_percent = min(1.0, avg_entropy / MAX_ENTROPY_BITS)
+    #avg_surprisal_reweighted = avg_surprisal - 15 if avg_surprisal > 15 else 0 
+    surprisal_percent = min(1, avg_surprisal / MAX_SURPRISAL_BITS)
+    nonsense_word_fraction = nonsense_words / len(text_words)
+    score = max(entropy_percent,surprisal_percent, nonsense_word_fraction)
     requests.post(url, json={"surprisal_score": score, "message_id":message_id})
 
     return {
         "score": score,
+        "avg_entropy": avg_entropy,
         "avg_surprisal": avg_surprisal,
         "max_surprisal": max_surprisal,
-        "perplexity": perplexity,
-        "nonsense_word_fraction": nonsense_words / len(text_words),
+        #"nonsense_word_fraction": nonsense_word_fraction,
         #"surprisals": surprisals,
+        #"logprobs": logprob_list,
         #"tokens": [tokenizer.decode([token_id]) for token_id in input_ids[0][3:].tolist()]
     }
 
@@ -160,6 +181,6 @@ def get_model_and_tokenizer(cache_dir: pathlib.Path = None):
 
 
 if __name__ == "__main__":
-    test_text = "Ths is a smple txt with sme nonsensical wrds and 1234 numbers."
+    test_text = """Kin past love fish monitpr color key raw music rust"""
     result = asyncio.run( monitorSurprisal("123", "https://example.com", test_text))
     print("Result:", result)
