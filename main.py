@@ -31,8 +31,8 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
     message_id = bigBrotherResponse.message_id
     callback_urls = bigBrotherResponse.callback_urls
 
-    asyncio.create_task(monitorEntailment(message_id, callback_urls.consistency_nli, prompt, reasoning, answer))
-    
+    asyncio.create_task(monitorEntailment(message_id, callback_urls.entailment, prompt, reasoning, answer))
+
     return {"message": "Lil Brother Is Watching!"}
 
 @app.get("/")
