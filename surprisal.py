@@ -1,12 +1,11 @@
+import os
+import pathlib
 import nltk
 import torch
 import math
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from nltk.corpus import wordnet
 from nltk.corpus import words
-nltk.download("wordnet")
-nltk.download("words")
-
 
 
 english_vocab = set(words.words())
@@ -18,15 +17,12 @@ def compute_surprisal(text: str):
     @return: Dictionary with surprisal metrics. Surprisal score is True if text is likely nonsensical/surprising 
     for the little sister.
     '''
-    tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B", trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B", trust_remote_code=True)
+    # get cached tokenizer/model (downloads only on first run)
+    tokenizer, model = get_model_and_tokenizer()
+
     # Configure sliding window attention  
-    if hasattr(model.config, "attention_window"):
-        model.config.attention_window = 512
-    if hasattr(model.config, "use_sliding_window_attention"):
-        model.config.use_sliding_window_attention = True
-    
-    model.eval()
+    # model already configured and set to eval() in get_model_and_tokenizer()
+    # ...existing code...
 
     text_words = [w.strip(".,!?;:()").lower() for w in text.split()]
 
@@ -92,6 +88,73 @@ def is_float(s):
     except ValueError:
         return False
     
+
+# New: configuration for local caching
+MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+# default cache directory inside the project (adjust if you prefer another location)
+DEFAULT_CACHE_DIR = pathlib.Path(__file__).resolve().parent / "cache" / "deepseek"
+# module-level singletons to avoid re-loading
+_TOKENIZER = None
+_MODEL = None
+
+def ensure_nltk_data():
+    """Download wordnet and words only if missing."""
+    try:
+        nltk.data.find("corpora/wordnet")
+    except LookupError:
+        nltk.download("wordnet", quiet=True)
+    try:
+        nltk.data.find("corpora/words")
+    except LookupError:
+        nltk.download("words", quiet=True)
+
+def ensure_model_cached(cache_dir: pathlib.Path):
+    """
+    Ensure tokenizer and model are present in cache_dir.
+    If not present, download from HF and save_pretrained into cache_dir.
+    """
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    # determine if we already saved tokenizer+model by checking a common file
+    marker_tokenizer = cache_dir / "tokenizer.json"
+    marker_model = cache_dir / "pytorch_model.bin"
+    # If either marker missing, download from hub and save into cache_dir
+    if not (marker_tokenizer.exists() or marker_model.exists()):
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
+        model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, trust_remote_code=True)
+        tokenizer.save_pretrained(str(cache_dir))
+        model.save_pretrained(str(cache_dir))
+    # If cached, nothing to do (from_pretrained can load from local path)
+
+def get_model_and_tokenizer(cache_dir: pathlib.Path = None):
+    """Return (tokenizer, model) loading from local cache if available, else downloading once."""
+    global _TOKENIZER, _MODEL
+    if _TOKENIZER is not None and _MODEL is not None:
+        return _TOKENIZER, _MODEL
+
+    if cache_dir is None:
+        cache_dir = DEFAULT_CACHE_DIR
+
+    ensure_nltk_data()
+    ensure_model_cached(cache_dir)
+
+    # If saved in cache_dir, load from there; otherwise Auto will fall back to hub cache
+    try:
+        _TOKENIZER = AutoTokenizer.from_pretrained(str(cache_dir), trust_remote_code=True)
+        _MODEL = AutoModelForCausalLM.from_pretrained(str(cache_dir), trust_remote_code=True)
+    except Exception:
+        # fallback to direct repo if local load fails
+        _TOKENIZER = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
+        _MODEL = AutoModelForCausalLM.from_pretrained(MODEL_NAME, trust_remote_code=True)
+
+    # Configure sliding window attention if applicable
+    if hasattr(_MODEL.config, "attention_window"):
+        _MODEL.config.attention_window = 512
+    if hasattr(_MODEL.config, "use_sliding_window_attention"):
+        _MODEL.config.use_sliding_window_attention = True
+
+    _MODEL.eval()
+    return _TOKENIZER, _MODEL
+
 
 if __name__ == "__main__":
     test_text = "Ths is a smple txt with sme nonsensical wrds and 1234 numbers."

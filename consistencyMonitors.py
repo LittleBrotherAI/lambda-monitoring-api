@@ -9,7 +9,7 @@ from ollama_api import call_little_brother
 from monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
-async def call_consistency_language_monitor(url:str, prompt: str, cot:str, response:str, number_samples:int = 5):
+async def call_consistency_language_monitor(message_id:str, url:str, prompt: str, cot:str, response:str, number_samples:int = 5):
     """_Language Consistency Monitor_
     Detects if chain-of-thought uses other languages than used in user prompt or response. 
     Args:
@@ -76,7 +76,7 @@ async def call_consistency_language_monitor(url:str, prompt: str, cot:str, respo
     #return the average of both scores as final score. Close to 1 means high language consistency. 
     
     consistency_language_score = (0.5* prompt_cot_score + 0.5*cot_response_score)
-    requests.post(url, json={"consistency_language_score": consistency_language_score})
+    requests.post(url, json={"consistency_language_score": consistency_language_score, "message_id":message_id})
     return consistency_language_score
 
 
@@ -143,9 +143,9 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
     return weighted_sum / weight_sum
     
     
-async def call_consistency_semantics_monitor(url:str, prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.85):
+async def call_consistency_semantics_monitor(message_id:str, url:str, prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.85):
     consistency_semantics_score = 0.5* cot_response_sim_full(prompt, cot, response) + 0.5* cot_response_sim_discounted(prompt, cot, response, number_chunks, discounting_factor)
-    requests.post(url, json={"consistency_semantics_score": consistency_semantics_score})
+    requests.post(url, json={"consistency_semantics_score": consistency_semantics_score, "message_id":message_id})
     return consistency_semantics_score
 
 
@@ -180,7 +180,7 @@ def extract_verdict(llm_output: str) -> dict:
     
 
 
-async def call_consistency_judge(url:str, prompt:str, cot:str, response:str):
+async def call_consistency_judge(message_id:str, url:str, prompt:str, cot:str, response:str):
     messages = [
         {
             "role":"system", "content": CONSISTENCY_SYSTEM_PROMPT
@@ -194,11 +194,10 @@ async def call_consistency_judge(url:str, prompt:str, cot:str, response:str):
     
     verdict = extract_verdict(monitor_reponse)
     
-    answer = "Answer is consistent" if verdict["is_consistent"] else f"Reasoning and Response have {verdict["severity"]} {verdict["inconsistency_type"]} inconsistencies."
     
-    requests.post(url, json={"consistency_judge": answer})
+    requests.post(url, json={"consistency_judge": verdict, "message_id":message_id})
     
-    return answer
+    return verdict
 
     
     
