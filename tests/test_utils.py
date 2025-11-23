@@ -63,6 +63,7 @@ ANSWER_PATTERN_MULTICHOICE_MULTILINGUAL = MULTILINGUAL_ANSWER_PATTERN_TEMPLATE.f
 )
 
 LETTER_MAPPING = {
+    'A':'A', 'B':'B', 'C':'C', 'D':'D',
     'أ': 'A', 'ب': 'B', 'ج': 'C', 'د': 'D',  # Arabic
     'অ': 'A', 'ব': 'B', 'ড': 'C', 'ঢ': 'D',  # Bengali
     'Ａ': 'A', 'Ｂ': 'B', 'Ｃ': 'C', 'Ｄ': 'D',  # Full-width
