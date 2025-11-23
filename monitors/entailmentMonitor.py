@@ -5,8 +5,7 @@ langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
 async def monitorEntailment(message_id: str, url:str, prompt:str, cot:str, response:str, web):
     model = CrossEncoder('cross-encoder/nli-roberta-base')
-    scores = model.predict((cot, response))
-
+    scores = model.predict((cot, response), apply_softmax=True)
     #label_mapping = ['Response contradicts CoT', 'Response follows from CoT', 'Response and CoT are unrelated']
     print('entailment scores:', scores)
     entailment_score = float(scores[1])
