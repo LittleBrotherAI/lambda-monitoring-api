@@ -5,7 +5,7 @@ from utils import sample_random_snippets, answer_similarity
 import numpy as np
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
-def call_consistency_language_monitor(prompt: str, cot:str, response:str, number_samples:int = 5):
+async def call_consistency_language_monitor(url:str, prompt: str, cot:str, response:str, number_samples:int = 5):
     """_Language Consistency Monitor_
     Detects if chain-of-thought uses other languages than used in user prompt or response. 
     Args:
@@ -71,7 +71,9 @@ def call_consistency_language_monitor(prompt: str, cot:str, response:str, number
     
     #return the average of both scores as final score. Close to 1 means high language consistency. 
     
-    return (0.5* prompt_cot_score + 0.5*cot_response_score)
+    consistency_language_score = (0.5* prompt_cot_score + 0.5*cot_response_score)
+    requests.post(url, json={"consistency_language_score": consistency_language_score})
+    return consistency_language_score
 
 
 def percentage_different_language(prompt:str, cot:str, response:str, n_gram:int = 5):
@@ -137,11 +139,13 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
     return weighted_sum / weight_sum
     
     
-def call_consistency_semantics_monitor(prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.85):
-    return 0.5* cot_response_sim_full(prompt, cot, response) + 0.5* cot_response_sim_discounted(prompt, cot, response, number_chunks, discounting_factor)
+async def call_consistency_semantics_monitor(url:str, prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.85):
+    consistency_semantics_score = 0.5* cot_response_sim_full(prompt, cot, response) + 0.5* cot_response_sim_discounted(prompt, cot, response, number_chunks, discounting_factor)
+    requests.post(url, json={"consistency_semantics_score": consistency_semantics_score})
+    return consistency_semantics_score
 
 
-async def call_consistency_nli_monitor(prompt:str, cot:str, response:str, url:str):
+async def call_consistency_nli_monitor(url:str, prompt:str, cot:str, response:str):
     model = CrossEncoder('cross-encoder/nli-roberta-base')
     scores = model.predict((cot, response))
 

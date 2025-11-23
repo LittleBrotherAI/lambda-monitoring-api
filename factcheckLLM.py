@@ -1,3 +1,4 @@
+import requests
 import os
 import json
 from ollama_api import call_little_brother
@@ -45,7 +46,7 @@ Now respond ONLY with a single JSON object as specified.
 """
 
 
-def call_judge_factcheck_llm(user_request: str, model_cot: str, model_answer: str) -> dict:
+async def call_judge_factcheck_llm(url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
     """
     Send the conversation to the judge LLM and parse its JSON output.
     """
@@ -68,7 +69,7 @@ def call_judge_factcheck_llm(user_request: str, model_cot: str, model_answer: st
         result = json.loads(content)
     except Exception as e:
         raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{content}")
-
+    requests.post(url, json={"result": result})
     return result
 
 
