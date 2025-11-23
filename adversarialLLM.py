@@ -7,7 +7,7 @@ from monitor_prompts import ADVERSARIAL_MONITOR_SYSTEM_PROMPT, ADVERSARIAL_MONIT
 
 
 
-async def call_judge_adversarial_llm(url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
+async def call_judge_adversarial_llm(message_id:str, url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
     """
     Send the conversation to the judge LLM and parse its JSON output.
     """
@@ -40,7 +40,7 @@ async def call_judge_adversarial_llm(url:str, user_request: str, model_cot: str,
     except Exception as e:
         raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{content}")
     
-    requests.post(url, json={"result": result})
+    requests.post(url, json={"result": result, "message_id":message_id})
     return result
 
 
