@@ -10,6 +10,7 @@ from monitors.reproducibilityMonitor import monitorReproducibility
 from monitors.semanticsMonitor import monitorSemantics
 from monitors.surprisalMonitor import monitorSurprisal
 from monitors.legibilityCoverageMonitor import monitorLegibilityCoverage
+from monitors.adversarialMonitor import monitorAdversarial
 
 web = None
 
@@ -54,6 +55,7 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
     asyncio.create_task(monitorSemantics(message_id, callback_urls.semantics, prompt, reasoning, answer, web))
     asyncio.create_task(monitorSurprisal(message_id, callback_urls.surprisal, reasoning, web))
     asyncio.create_task(monitorLegibilityCoverage(message_id, callback_urls.legibility_coverage, prompt, reasoning, answer, web))
+    asyncio.create_task(monitorAdversarial(message_id, callback_urls.adversarial, prompt, reasoning, answer, web))
 
     return {"message": "Lil Brother Is Watching!"}
 
