@@ -17,7 +17,7 @@ EXPECTED = {
 
 ALLOWED_SEVERITY = {"minimal", "low", "moderate", "high", "critical"}
 
-async def monitorAdversarial(url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
+async def monitorAdversarial(message_id:str, url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
     """
     Send the conversation to the judge LLM and parse its JSON output.
     """
@@ -58,7 +58,7 @@ async def monitorAdversarial(url:str, user_request: str, model_cot: str, model_a
     
     if result["severity"] not in ALLOWED_SEVERITY:
         raise ValueError(f"Invalid severity level: {result['severity']}")
-    
+    result["message_id"] = message_id
     requests.post(url, json=result)
     return result
 

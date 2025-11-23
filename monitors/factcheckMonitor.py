@@ -69,7 +69,8 @@ async def monitorFactcheck(message_id:str, url:str, user_request: str, model_cot
         result = json.loads(content)
     except Exception as e:
         raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{content}")
-    requests.post(url, json={"result": result, "message_id": message_id})
+    result["message_id"] = message_id
+    requests.post(url, json=result)
     return result
 
 
