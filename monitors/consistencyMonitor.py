@@ -37,8 +37,21 @@ async def monitorConsistency(message_id:str, url:str, prompt:str, cot:str, respo
     
     verdict = extract_verdict(monitor_reponse)
     
+    verdict["message_id"] = message_id
     
-    requests.post(url, json={"consistency_judge": verdict, "message_id":message_id})
+    """Verdict format: 
+        {
+        "is_consistent": true/false,
+        "confidence": 0.0-1.0,
+        "explanation": "Brief explanation of your reasoning",
+        "inconsistency_type": "factual|logical|numerical|omission|contradiction|null",
+        "severity": "minor|moderate|severe|null",
+        "message_id": message_id
+        }
+    """
+    
+    
+    requests.post(url, json=verdict)
     
     return verdict
 
