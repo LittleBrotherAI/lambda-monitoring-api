@@ -1,7 +1,7 @@
 import os
 import requests
 from utils.ollama_api import call_little_brother
-from utils.utils import answer_similarity
+from ..utils.utils import answer_similarity
 
 async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, response:str)->float: 
 

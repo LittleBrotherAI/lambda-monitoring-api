@@ -1,7 +1,7 @@
 import requests
 from langid.langid import LanguageIdentifier, model
-from utils.utils import answer_similarity
-from utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
+from ..utils.utils import answer_similarity
+from ..utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
 def cot_response_sim_full(prompt:str, cot:str, response:str):

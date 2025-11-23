@@ -1,6 +1,6 @@
 import requests
 from langid.langid import LanguageIdentifier, model
-from utils.utils import sample_random_snippets
+from ..utils.utils import sample_random_snippets
 import numpy as np
 from utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
