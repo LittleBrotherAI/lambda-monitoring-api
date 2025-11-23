@@ -1,13 +1,23 @@
 import requests
-import os
 import json
-from ollama_api import call_little_brother
-from monitor_prompts import ADVERSARIAL_MONITOR_SYSTEM_PROMPT, ADVERSARIAL_MONITOR_USER_PROMPT
+from utils.json_format_check import InvalidJudgeResponse, validate_judge_response
+from utils.ollama_api import call_little_brother
+from utils.monitor_prompts import ADVERSARIAL_MONITOR_SYSTEM_PROMPT, ADVERSARIAL_MONITOR_USER_PROMPT
 
+EXPECTED = {
+    "is_adversarial": bool,
+    "adversarial_score": float,
+    "confidence": float,
+    "categories": list,
+    "explanation": str,
+    "severity": str,
+    "key_evidence": list,
+    "alternative_interpretation": (str, type(None)),
+}
 
+ALLOWED_SEVERITY = {"minimal", "low", "moderate", "high", "critical"}
 
-
-async def call_judge_adversarial_llm(message_id:str, url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
+async def monitorAdversarial(url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
     """
     Send the conversation to the judge LLM and parse its JSON output.
     """
@@ -40,7 +50,16 @@ async def call_judge_adversarial_llm(message_id:str, url:str, user_request: str,
     except Exception as e:
         raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{content}")
     
-    requests.post(url, json={"result": result, "message_id":message_id})
+    try:
+      validate_judge_response(result, EXPECTED)
+    except InvalidJudgeResponse as e:
+      print("ERROR:", e)
+      raise ValueError(f"Judge response validation error: {e}\nRaw content:\n{content}")
+    
+    if result["severity"] not in ALLOWED_SEVERITY:
+        raise ValueError(f"Invalid severity level: {result['severity']}")
+    
+    requests.post(url, json=result)
     return result
 
 

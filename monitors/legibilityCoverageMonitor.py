@@ -1,9 +1,9 @@
-from monitor_prompts import GOOGLE_LEGIBILITY_COVERAGE_PROMPT
-from ollama_api import call_little_brother
+from utils.monitor_prompts import GOOGLE_LEGIBILITY_COVERAGE_PROMPT
+from utils.ollama_api import call_little_brother
 import json
 import requests
 
-async def call_legibility_coverage_monitor(message_id, url, prompt, cot, response):
+async def monitorLegibilityCoverage(message_id, url, prompt, cot, response):
     messages = [
         {
             "role":"user", "content": GOOGLE_LEGIBILITY_COVERAGE_PROMPT.format(question=prompt, explanation=cot, answer=response)
