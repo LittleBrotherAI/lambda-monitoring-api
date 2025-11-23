@@ -10,8 +10,8 @@ from nltk.corpus import words
 
 
 english_vocab = set(words.words())
-MAX_SURPRISAL_BITS = 35.0  
-MAX_ENTROPY_BITS = 12.0 
+MAX_SURPRISAL_BITS = 23.0  
+MAX_ENTROPY_BITS = 10.0 
 
 async def monitorSurprisal(message_id:str, url:str,text: str):
     '''
@@ -85,8 +85,8 @@ async def monitorSurprisal(message_id:str, url:str,text: str):
     #score = nonsence or avg_surprisal > 20.0 or max_surprisal > 2* avg_surprisal
 
     entropy_percent = min(1.0, avg_entropy / MAX_ENTROPY_BITS)
-    avg_surprisal_reweighted = avg_surprisal - 15 if avg_surprisal > 15 else 0 
-    surprisal_percent = min(1, avg_surprisal_reweighted / MAX_SURPRISAL_BITS)
+    #avg_surprisal_reweighted = avg_surprisal - 15 if avg_surprisal > 15 else 0 
+    surprisal_percent = min(1, avg_surprisal / MAX_SURPRISAL_BITS)
     nonsense_word_fraction = nonsense_words / len(text_words)
     score = max(entropy_percent,surprisal_percent, nonsense_word_fraction)
     requests.post(url, json={"surprisal_score": score, "message_id":message_id})
@@ -181,8 +181,6 @@ def get_model_and_tokenizer(cache_dir: pathlib.Path = None):
 
 
 if __name__ == "__main__":
-    test_text = """Historical events leading to the First Bulgarian Empire include the Great Bulgarrealm in the 7th century. Then the Bulgars and Slavs united under Khan Asparuh against Byzantium. The Battle of Ongal in 681 was crucial. I should mention the Treaty of 681 with Byzantium recognizing Bulgaria.
-For modern Bulgaria, the Ottoman rule started in the late 14th century. The April Uprising of 1876 and Russo-Turkish War led to the Treaty of San Stefano in 1878. But the Congress of Berlin later modified it, so full independence was 1885 autonomously and declared in 1908. The user might be confused about the exact year, so clarifying the milestones is key.
-Both dates (681 and 1878/1908) are important. Including major events like the Cyrillic alphabet development under Boris I shows Bulgaria's cultural impact. Highlighting key figures like Asparuh and Alexander II would make it more engaging. Also noting the modern recognition date—July 22, 1908—as Bulgaria's Independence Day ties it to present-day significance."""
+    test_text = """Kin past love fish monitpr color key raw music rust"""
     result = asyncio.run( monitorSurprisal("123", "https://example.com", test_text))
     print("Result:", result)
