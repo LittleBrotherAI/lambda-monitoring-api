@@ -1,7 +1,7 @@
 import requests
 import os
 import json
-from ollama_api import call_little_brother
+from utils.ollama_api import call_little_brother
 
 
 
@@ -46,7 +46,7 @@ Now respond ONLY with a single JSON object as specified.
 """
 
 
-async def call_judge_factcheck_llm(message_id:str, url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
+async def monitorFactcheck(message_id:str, url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
     """
     Send the conversation to the judge LLM and parse its JSON output.
     """

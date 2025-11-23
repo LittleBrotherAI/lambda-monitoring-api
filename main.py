@@ -1,7 +1,6 @@
 from adversarialLLM import call_judge_adversarial_llm
-from factcheckLLM import call_judge_factcheck_llm
-from consistencyMonitors import call_consistency_language_monitor, call_consistency_semantics_monitor, call_consistency_nli_monitor, call_consistency_judge
-from surprisal import compute_surprisal
+from monitors.factcheckMonitor import call_judge_factcheck_llm
+from monitors.surprisalMonitor import compute_surprisal
 from fastapi import FastAPI
 from pydantic import BaseModel
 import asyncio
@@ -9,12 +8,15 @@ import asyncio
 app = FastAPI()
 
 class CallbackUrls(BaseModel):
-    consistency_language: str
-    consistency_semantics: str
-    consistency_nli: str 
-    consistency_judge: str #new
-    similarity: str
-    understandability: str
+    language: str
+    semantics: str
+    entailment: str
+    consistency: str
+    legibility_coverage: str
+    reproducibility: str
+    surprisal: str
+    adversarial: str
+    #factcheck: str
 
 class BigBrotherReponse(BaseModel):
     prompt: str
@@ -33,7 +35,7 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
 
     # asyncio.create_task(call_consistency_language_monitor(callback_urls.consistency_language, prompt, reasoning, answer))
     # asyncio.create_task(call_consistency_semantics_monitor(callback_urls.consistency_semantics, prompt, reasoning, answer))
-    asyncio.create_task(call_consistency_nli_monitor(message_id, callback_urls.consistency_nli, prompt, reasoning, answer))
+    asyncio.create_task(call_consistency_entailment_monitor(message_id, callback_urls.consistency_nli, prompt, reasoning, answer))
 
     #call_judge_factcheck_llm(callback_urls.consistency_nli, prompt, reasoning, answer)
     #call_judge_adversarial_llm(callback_urls.consistency_nli, prompt, reasoning, answer)

@@ -10,7 +10,7 @@ from nltk.corpus import words
 
 english_vocab = set(words.words())
 
-def compute_surprisal(text: str):
+def monitorSurprisal(text: str):
     '''
     Compute surprisal metrics for the given text using a language model.
     @param text: Input text string.
@@ -158,5 +158,5 @@ def get_model_and_tokenizer(cache_dir: pathlib.Path = None):
 
 if __name__ == "__main__":
     test_text = "Ths is a smple txt with sme nonsensical wrds and 1234 numbers."
-    result = compute_surprisal(test_text)
+    result = monitorSurprisal(test_text)
     print(result)

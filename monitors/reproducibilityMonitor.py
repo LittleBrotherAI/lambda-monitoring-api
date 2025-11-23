@@ -1,9 +1,9 @@
 import os
 import requests
-from ollama_api import call_little_brother
-from utils import answer_similarity
+from utils.ollama_api import call_little_brother
+from utils.utils import answer_similarity
 
-async def call_reproducibility_monitor(message_id:str, url:str, prompt:str, cot:str, response:str)->float: 
+async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, response:str)->float: 
 
     messages = [
         {
