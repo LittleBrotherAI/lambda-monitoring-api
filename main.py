@@ -4,6 +4,7 @@ from consistencyMonitors import call_consistency_language_monitor, call_consiste
 from surprisal import compute_surprisal
 from fastapi import FastAPI
 from pydantic import BaseModel
+import asyncio
 
 app = FastAPI()
 
@@ -26,14 +27,16 @@ async def create_item(bigBrotherReponse: BigBrotherReponse):
     reasoning = bigBrotherReponse.reasoning
     answer = bigBrotherReponse.answer
     callback_urls = bigBrotherReponse.callback_urls
-    call_consistency_language_monitor(callback_urls.consistency_language, prompt, reasoning, answer)
-    call_consistency_semantics_monitor(callback_urls.consistency_semantics, prompt, reasoning, answer)
-    call_consistency_nli_monitor(callback_urls.consistency_nli, prompt, reasoning, answer)
+
+    asyncio.run(call_consistency_language_monitor(callback_urls.consistency_language, prompt, reasoning, answer))
+    asyncio.run(call_consistency_semantics_monitor(callback_urls.consistency_semantics, prompt, reasoning, answer))
+    asyncio.run(call_consistency_nli_monitor(callback_urls.consistency_nli, prompt, reasoning, answer))
+
     #call_judge_factcheck_llm(callback_urls.consistency_nli, prompt, reasoning, answer)
     #call_judge_adversarial_llm(callback_urls.consistency_nli, prompt, reasoning, answer)
-    return {"message": "Big Brother Is Watching!"}
+
+    return {"message": "Lil Brother Is Watching!"}
 
 @app.get("/")
 def hello():
-    return {"message": "Hello world!"}
-
+    return {"message": "hi!"}
