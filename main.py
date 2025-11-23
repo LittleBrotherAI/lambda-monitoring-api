@@ -20,7 +20,7 @@ class BigBrotherReponse(BaseModel):
     answer: str
     callback_urls: CallbackUrls
 
-@app.post("/")
+@app.post("/api/monitor")
 async def create_item(bigBrotherReponse: BigBrotherReponse):
     prompt = bigBrotherReponse.prompt
     reasoning = bigBrotherReponse.reasoning
