@@ -17,3 +17,8 @@ uvicorn main:app --host 0.0.0.0 --port 80
 ```
 
 Then the server will be running! You can test the connection with `curl http://<ip-address>:80/` and should get a welcome message :)
+
+TODO:
+- tarik add the remaining callbackurls
+- change it so that surprisal.py does not redownload models every time at start and when called
+- add cot_untrusted_trusted_similarity and surprisal to main
