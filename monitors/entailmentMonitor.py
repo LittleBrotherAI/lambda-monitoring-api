@@ -8,8 +8,7 @@ async def monitorEntailment(message_id: str, url:str, prompt:str, cot:str, respo
     model = CrossEncoder('cross-encoder/nli-roberta-base')
     scores = model.predict((cot, response))
 
-    #Convert scores to labels
-    label_mapping = ['Response contradicts CoT', 'Response follows from CoT', 'Response and CoT are unrelated']
-    label = label_mapping[scores.argmax()] 
-    requests.post(url, json={"label": label, "message_id": message_id})
-    return label
+    #label_mapping = ['Response contradicts CoT', 'Response follows from CoT', 'Response and CoT are unrelated']
+    entailment_score = scores[1]
+    requests.post(url, json={"score": entailment_score, "message_id": message_id})
+    return entailment_score
