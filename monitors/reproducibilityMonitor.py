@@ -1,8 +1,7 @@
-import os
 import requests
+import asyncio
 from utils.ollama_api import call_little_brother
 from utils.utils import answer_similarity
-import asyncio
 
 async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, response:str): 
 
@@ -23,20 +22,16 @@ async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, r
     
     little_brother_response = call_little_brother(messages=messages, thinking="low") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
 
-
     # compute your similarities
     similarity = answer_similarity(response, little_brother_response)
     requests.post(url, json={"reproducibility_score": similarity, "message_id":message_id})
-
-    return little_brother_response, similarity
-
+    return similarity
 
 if __name__ == "__main__":
-    prompt = "What are the factors for the equation x^2 - 7x + 10?"
-    cot = "The user wants me to compute the factors for the equation x^2 - 7x + 10. Factor the equation into (x-5)(x-2). Then give the resulting possible values for x."
-    response = "x=2, x=5"
-    little_brother_response, similarity = asyncio.run(
-        monitorReproducibility("whatever", "https://example.com", prompt, cot, response)
+    prompt = "Ths is a smple txt with sme nonsensical wrds and 1234 numbers."
+    cot = "todo"
+    response = "stuff"
+    result = asyncio.run(
+        monitorReproducibility("whatever", "stuff", prompt, cot, response)
     )
-    print(similarity)
-    print(little_brother_response)
+    print(result)
