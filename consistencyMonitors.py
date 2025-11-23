@@ -3,6 +3,7 @@ from sentence_transformers import CrossEncoder
 from langid.langid import LanguageIdentifier, model
 from utils import sample_random_snippets, answer_similarity
 import numpy as np
+from ollama_api import call_little_brother
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
 async def call_consistency_language_monitor(url:str, prompt: str, cot:str, response:str, number_samples:int = 5):
@@ -130,10 +131,10 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
         chunk_sim = answer_similarity(chunk, response)
         chunk_scores.append(chunk_sim)
         
-    reversed_chunk_scores = chunk_scores.reverse()
+    chunk_scores.reverse()
     
-    weights = [discounting_factor ** i for i in range(len(reversed_chunk_scores))]
-    weighted_sum = sum(w * x for w, x in zip(weights, reversed_chunk_scores))
+    weights = [discounting_factor ** i for i in range(len(chunk_scores))]
+    weighted_sum = sum(w * x for w, x in zip(weights, chunk_scores))
     weight_sum = sum(weights)
     
     return weighted_sum / weight_sum
@@ -155,6 +156,12 @@ async def call_consistency_nli_monitor(url:str, prompt:str, cot:str, response:st
     requests.post(url, json={"label": label})
     return label
     
+async def call_consistency_judge(url:str, prompt:str, cot:str, response:str):
+    messages = [
+        {
+            "role":"system", ""
+        }
+    ]
     
     
     
