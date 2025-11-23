@@ -1,7 +1,12 @@
-from monitors.entailmentMonitor import monitorEntailment
 from fastapi import FastAPI
 from pydantic import BaseModel
 import asyncio
+
+from monitors.entailmentMonitor import monitorEntailment
+from monitors.languageMonitor import monitorLanguage
+from monitors.reproducibilityMonitor import monitorReproducibility
+from monitors.semanticsMonitor import monitorSemantics
+
 
 app = FastAPI()
 
@@ -32,6 +37,9 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
     callback_urls = bigBrotherResponse.callback_urls
 
     asyncio.create_task(monitorEntailment(message_id, callback_urls.entailment, prompt, reasoning, answer))
+    asyncio.create_task(monitorLanguage(message_id, callback_urls.language, prompt, reasoning, answer))
+    asyncio.create_task(monitorReproducibility(message_id, callback_urls.reproducibility, prompt, reasoning, answer))
+    asyncio.create_task(monitorSemantics(message_id, callback_urls.semantics, prompt, reasoning, answer))
 
     return {"message": "Lil Brother Is Watching!"}
 
