@@ -18,4 +18,12 @@ def call_little_brother(messages, model="gpt-oss:120b-cloud", thinking="high", r
     else:
         return response.message.content
 
-  
+if __name__=="__main__":
+    
+    messages = [
+        {
+            "role":"user", "content": "Why is the sky blue?"
+        }
+    ]
+    print(call_little_brother(messages))
+

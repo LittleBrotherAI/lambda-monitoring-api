@@ -2,6 +2,7 @@ import requests
 from langid.langid import LanguageIdentifier, model
 import json
 import re
+import asyncio
 from utils.ollama_api import call_little_brother
 from utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
@@ -51,13 +52,20 @@ async def monitorConsistency(message_id:str, url:str, prompt:str, cot:str, respo
     """
     
     
-    requests.post(url, json=verdict)
+    #requests.post(url, json=verdict)
     
     return verdict
 
     
     
-
-        
+if __name__=="__main__":
+    prompt = "What are the factors for the equation x^2 - 7x + 10?"
+    cot = "The user wants me to compute the factors for the equation x^2 - 7x + 10. Factor the equation into (x-5)(x-2). Then give the resulting possible values for x."
+    response = "x=2, x=5"
+    verdict = asyncio.run(
+        monitorConsistency("whatever", "https://example.com", prompt, cot, response)
+    )
+    print(verdict)
+    
     
     
