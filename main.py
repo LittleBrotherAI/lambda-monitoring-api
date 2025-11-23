@@ -11,6 +11,7 @@ from monitors.semanticsMonitor import monitorSemantics
 from monitors.surprisalMonitor import monitorSurprisal
 from monitors.legibilityCoverageMonitor import monitorLegibilityCoverage
 from monitors.adversarialMonitor import monitorAdversarial
+from monitors.factcheckMonitor import monitorFactcheck
 
 web = None
 
@@ -32,7 +33,7 @@ class CallbackUrls(BaseModel):
     reproducibility: str
     surprisal: str
     adversarial: str
-    #factcheck: str
+    factcheck: str
 
 class BigBrotherReponse(BaseModel):
     prompt: str
@@ -56,6 +57,7 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
     asyncio.create_task(monitorSurprisal(message_id, callback_urls.surprisal, reasoning, web))
     asyncio.create_task(monitorLegibilityCoverage(message_id, callback_urls.legibility_coverage, prompt, reasoning, answer, web))
     asyncio.create_task(monitorAdversarial(message_id, callback_urls.adversarial, prompt, reasoning, answer, web))
+    asyncio.create_task(monitorFactcheck(message_id, callback_urls.factcheck, prompt, reasoning, answer, web))
 
     return {"message": "Lil Brother Is Watching!"}
 
