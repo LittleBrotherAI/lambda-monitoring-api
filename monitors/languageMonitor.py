@@ -2,7 +2,7 @@ import requests
 from langid.langid import LanguageIdentifier, model
 from ..utils.utils import sample_random_snippets
 import numpy as np
-from utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
+from ..utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
 async def monitorLanguage(message_id:str, url:str, prompt: str, cot:str, response:str, number_samples:int = 5):

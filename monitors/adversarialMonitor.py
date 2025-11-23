@@ -1,8 +1,8 @@
 import requests
 import json
-from utils.json_format_check import InvalidJudgeResponse, validate_judge_response
-from utils.ollama_api import call_little_brother
-from utils.monitor_prompts import ADVERSARIAL_MONITOR_SYSTEM_PROMPT, ADVERSARIAL_MONITOR_USER_PROMPT
+from ..utils.json_format_check import InvalidJudgeResponse, validate_judge_response
+from ..utils.ollama_api import call_little_brother
+from ..utils.monitor_prompts import ADVERSARIAL_MONITOR_SYSTEM_PROMPT, ADVERSARIAL_MONITOR_USER_PROMPT
 
 EXPECTED = {
     "is_adversarial": bool,

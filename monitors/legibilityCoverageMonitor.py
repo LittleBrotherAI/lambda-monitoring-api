@@ -1,5 +1,5 @@
-from utils.monitor_prompts import GOOGLE_LEGIBILITY_COVERAGE_PROMPT
-from utils.ollama_api import call_little_brother
+from ..utils.monitor_prompts import GOOGLE_LEGIBILITY_COVERAGE_PROMPT
+from ..utils.ollama_api import call_little_brother
 import json
 import requests
 
