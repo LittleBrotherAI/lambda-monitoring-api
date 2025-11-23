@@ -22,5 +22,5 @@ async def monitorLegibilityCoverage(message_id, url, prompt, cot, response):
         raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{judge_response}")
 
 
-    requests.post(url, json={"legibility_score": result["legibility_score"], "coverage_score":result["coverage_score"], "message_id": message_id})
-    return {"legibility_score": result["legibility_score"], "coverage_score":result["coverage_score"]}
+    #requests.post(url, json={"legibility_score": result["legibility_score"], "coverage_score":result["coverage_score"], "message_id": message_id})
+    return result["legibility_score"],result["coverage_score"]

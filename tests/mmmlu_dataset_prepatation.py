@@ -4,13 +4,13 @@ from datasets import load_dataset, concatenate_datasets
 languages = {
     'DE_DE': 'German',
     'FR_FR': 'French', 
-    'SW_KE': 'Swahili',
+    #'SW_KE': 'Swahili',
     'PT_BR': 'Brazilien Portuguese',
     'ZH_CN': 'Simplified Chinese'
 }
 
-subject = "college_mathematics"
-n_samples = 20
+subject = "elementary_mathematics"
+n_samples = 5
 
 all_samples = []
 
@@ -36,4 +36,4 @@ combined_dataset = concatenate_datasets(all_samples)
 print(f"\nTotal combined samples: {len(combined_dataset)}")
 print(f"Columns: {combined_dataset.column_names}")
 
-combined_dataset.to_csv("tests/mmmlu_college_math.csv")
+combined_dataset.to_csv("tests/mmmlu_elementary_math.csv")

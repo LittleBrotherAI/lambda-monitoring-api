@@ -7,7 +7,7 @@ import os
 import re
 import time
 import asyncio
-from tests.test_utils import QUERY_TEMPLATE_MULTICHOICE, MULTILINGUAL_ANSWER_PATTERN_TEMPLATE, LETTER_MAPPING
+from tests.test_utils import QUERY_TEMPLATE_MULTICHOICE, ANSWER_PATTERN_MULTICHOICE_MULTILINGUAL, LETTER_MAPPING
 
 
 load_dotenv()
@@ -18,13 +18,13 @@ client = OpenAI(
 )
 
 def extract_answer(response):
-    match = re.search(MULTILINGUAL_ANSWER_PATTERN_TEMPLATE, response)
+    match = re.search(ANSWER_PATTERN_MULTICHOICE_MULTILINGUAL, response)
     
     if match:
         letter = match.group(1).upper()
         normalized_letter = LETTER_MAPPING.get(letter, letter)  # Returns normalized or original
         return normalized_letter
-    else: return "A"
+    else: return None
     
     
 
@@ -32,15 +32,15 @@ async def main():
     elem_maths = pd.read_csv("tests/mmmlu_elementary_math.csv")
     col_maths = pd.read_csv("tests/mmmlu_college_math.csv")
 
-
+    print(len(elem_maths))
 
     datasets = [(elem_maths, "elementary"), (col_maths, "college")]
 
-    results= pd.DataFrame(columns=["level", "language", "user_prompt", "CoT", "response", "correct", "reproducibility_score", "language_score", "legibility_score", "coverage_score", "semantics_score"])
+    results= pd.DataFrame(columns=["id", "level", "language", "user_prompt", "CoT", "response", "extracted_letter", "expected_letter", "correct", "reproducibility_score", "language_score", "legibility_score", "coverage_score", "semantics_score"])
 
     for dataset, level in datasets:
-        for i, sample in tqdm(dataset.head(5).iterrows()):
-            
+        for i in tqdm(range(len(dataset))):
+            sample = dataset.loc[i]
             prompt = QUERY_TEMPLATE_MULTICHOICE.format(Question=sample["Question"], A=sample["A"], B=sample["B"], C=sample["C"], D=sample["D"])
             
             completion = client.chat.completions.create(
@@ -56,7 +56,11 @@ async def main():
             cot = getattr(msg, "reasoning", None)
             response = getattr(msg, "content", None)
             
-            correct = extract_answer(response) == sample["Answer"]
+            extracted_letter =extract_answer(response)
+            if extracted_letter:
+                correct =  extracted_letter == sample["Answer"]
+            else:
+                correct = False
             
             reproducibility_score, _ = await reproducibilityMonitor.monitorReproducibility("xy", "https://example.com", prompt, cot, response)
             
@@ -65,16 +69,19 @@ async def main():
             
             legibility_score, coverage_score = await legibilityCoverageMonitor.monitorLegibilityCoverage("xy", "https://example.com", prompt, cot, response)
             
-            time.sleep(5)
+            
             
             semantics_score = await semanticsMonitor.monitorSemantics("xy", "https://example.com", prompt, cot, response)
             
             results.loc[len(results)] = [
+                level+str(i),
                 level, 
                 sample["language"],
                 prompt,
                 cot,
                 response,
+                extracted_letter,
+                sample["Answer"],
                 correct,
                 reproducibility_score,
                 language_score,

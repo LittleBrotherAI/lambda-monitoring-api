@@ -27,7 +27,7 @@ async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, r
 
     # compute your similarities
     similarity = answer_similarity(response, little_brother_response)
-    requests.post(url, json={"score": similarity, "message_id":message_id})
+    #requests.post(url, json={"score": similarity, "message_id":message_id})
     return similarity, little_brother_response
 
 if __name__ == "__main__":
