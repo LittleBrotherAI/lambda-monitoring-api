@@ -8,6 +8,7 @@ async def monitorEntailment(message_id: str, url:str, prompt:str, cot:str, respo
     scores = model.predict((cot, response))
 
     #label_mapping = ['Response contradicts CoT', 'Response follows from CoT', 'Response and CoT are unrelated']
+    print('entailment scores:', scores)
     entailment_score = float(scores[1])
     await web.post(url, json={"score": entailment_score, "message_id": message_id})
     return entailment_score
