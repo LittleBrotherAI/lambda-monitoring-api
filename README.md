@@ -1,6 +1,6 @@
 # lambda-monitoring-api
 
-FUCK ME DAMN. okay, yesterday I did the following to make it work.
+You can get the server running a subset of the following commands.
 
 ```bash
 cd lilbro
@@ -13,10 +13,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 sudo su
 source .venv/bin/activate
-uvicorn main:app --host 0.0.0.0 --port 80 > server.logs 2>&1 
+uvicorn main:app --host 0.0.0.0 --port 80 2>&1 | tee server.logs
 ```
 
 Then the server will be running! You can test the connection with `curl http://<ip-address>:80/` and should get a welcome message :)
+You can also ssh into the server and check the file `server.logs` to see what's going wrong.
 
 TODO:
 - tarik add the remaining callbackurls
