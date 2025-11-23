@@ -3,8 +3,7 @@ import requests
 from ollama_api import call_little_brother
 from utils import answer_similarity
 
-def whatever_your_monitor_is_called(prompt, cot, response): 
-
+async def call_reproducibility_monitor(message_id:str, url:str, prompt:str, cot:str, response:str)->float: 
 
     messages = [
         {
@@ -18,10 +17,11 @@ def whatever_your_monitor_is_called(prompt, cot, response):
         }
     ]
     
-    little_brother_response = call_little_brother(messages=messages) #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
+    little_brother_response = call_little_brother(messages=messages, thinking="low") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
 
 
     # compute your similarities
     similarity = answer_similarity(response, little_brother_response)
+    requests.post(url, json={"reproducibility_score": similarity, "message_id":message_id})
 
     return similarity
