@@ -10,7 +10,7 @@ from nltk.corpus import words
 
 
 english_vocab = set(words.words())
-MAX_SURPRISAL_BITS = 23.0  
+MAX_SURPRISAL_BITS = 20.0  
 MAX_ENTROPY_BITS = 10.0 
 
 async def monitorSurprisal(message_id:str, url:str,text: str):
