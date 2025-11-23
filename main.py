@@ -7,18 +7,15 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class LLMResponse(BaseModel):
-    user_prompt: str
-    model_cot: str
-    model_answer: str
-
 class BigBrotherReponse(BaseModel):
     prompt: str
     reasoning: str
     answer: str
 
 @app.post("/")
-async def create_item(bigBrotherRepoonse: BigBrotherReponse):
+async def create_item(bigBrotherReponse: BigBrotherReponse):
+    prompt, reasoning, answer = bigBrotherReponse
+    call_consistency_nli_monitor(prompt, reasoning, answer)
     return {"message": "Big Brother Is Watching!"}
 
 @app.get("/")
@@ -45,4 +42,3 @@ def handle_consistency_semantics(llm_response: LLMResponse):
 @app.get("/api/monitor/consistency_nli")
 def handle_consistency_nli(llm_response: LLMResponse):
     return call_consistency_nli_monitor(llm_response.user_prompt, llm_response.model_cot, llm_response.model_answer)
-    return call_judge_adversarial_llm(llm_response.user_request, llm_response.model_cot, llm_response.model_answer)

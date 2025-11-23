@@ -1,7 +1,7 @@
 import os
 import requests
 from ollama_api import call_little_brother
-
+from utils import answer_similarity
 
 def whatever_your_monitor_is_called(prompt, cot, response): 
 
@@ -22,5 +22,6 @@ def whatever_your_monitor_is_called(prompt, cot, response):
 
 
     # compute your similarities
+    similarity = answer_similarity(response, little_brother_response)
 
-    return #some score
+    return similarity
