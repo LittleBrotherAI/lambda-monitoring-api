@@ -1,5 +1,3 @@
-import asyncio
-import os
 import pathlib
 import nltk
 import requests
