@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import asyncio
+from contextlib import asynccontextmanager
+from httpx import AsyncClient
 
 from monitors.entailmentMonitor import monitorEntailment
 from monitors.languageMonitor import monitorLanguage
@@ -9,7 +11,16 @@ from monitors.semanticsMonitor import monitorSemantics
 from monitors.surprisalMonitor import monitorSurprisal
 from monitors.legibilityCoverageMonitor import monitorLegibilityCoverage
 
-app = FastAPI()
+web = None
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global web
+    web = AsyncClient()
+    yield
+    await web.aclose()
+
+app = FastAPI(lifespan=lifespan)
 
 class CallbackUrls(BaseModel):
     language: str
@@ -37,12 +48,12 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
     message_id = bigBrotherResponse.message_id
     callback_urls = bigBrotherResponse.callback_urls
 
-    asyncio.create_task(monitorEntailment(message_id, callback_urls.entailment, prompt, reasoning, answer))
-    asyncio.create_task(monitorLanguage(message_id, callback_urls.language, prompt, reasoning, answer))
-    asyncio.create_task(monitorReproducibility(message_id, callback_urls.reproducibility, prompt, reasoning, answer))
-    asyncio.create_task(monitorSemantics(message_id, callback_urls.semantics, prompt, reasoning, answer))
-    asyncio.create_task(monitorSurprisal(message_id, callback_urls.surprisal, reasoning))
-    asyncio.create_task(monitorLegibilityCoverage(message_id, callback_urls.legibility_coverage, prompt, reasoning, answer))
+    asyncio.create_task(monitorEntailment(message_id, callback_urls.entailment, prompt, reasoning, answer, web))
+    asyncio.create_task(monitorLanguage(message_id, callback_urls.language, prompt, reasoning, answer, web))
+    asyncio.create_task(monitorReproducibility(message_id, callback_urls.reproducibility, prompt, reasoning, answer, web))
+    asyncio.create_task(monitorSemantics(message_id, callback_urls.semantics, prompt, reasoning, answer, web))
+    asyncio.create_task(monitorSurprisal(message_id, callback_urls.surprisal, reasoning, web))
+    asyncio.create_task(monitorLegibilityCoverage(message_id, callback_urls.legibility_coverage, prompt, reasoning, answer, web))
 
     return {"message": "Lil Brother Is Watching!"}
 

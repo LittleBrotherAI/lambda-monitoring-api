@@ -1,4 +1,3 @@
-import requests
 from langid.langid import LanguageIdentifier, model
 from utils.utils import answer_similarity
 from utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
@@ -46,7 +45,7 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
 
     return weighted_sum / weight_sum
 
-async def monitorSemantics(message_id:str, url:str, prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.85):
+async def monitorSemantics(message_id:str, url:str, prompt:str, cot:str, response:str, web, number_chunks:int= 10, discounting_factor:float = 0.85):
     consistency_semantics_score = 0.5* cot_response_sim_full(prompt, cot, response) + 0.5* cot_response_sim_discounted(prompt, cot, response, number_chunks, discounting_factor)
-    requests.post(url, json={"score": consistency_semantics_score, "message_id":message_id})
+    await web.post(url, json={"score": consistency_semantics_score, "message_id":message_id})
     return consistency_semantics_score

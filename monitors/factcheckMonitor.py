@@ -1,4 +1,3 @@
-import requests
 import os
 import json
 from utils.json_format_check import InvalidJudgeResponse, validate_judge_response
@@ -52,7 +51,7 @@ Now respond ONLY with a single JSON object as specified.
 """
 
 
-async def monitorFactcheck(message_id:str, url:str, user_request: str, model_cot: str, model_answer: str) -> dict:
+async def monitorFactcheck(message_id:str, url:str, user_request: str, model_cot: str, model_answer: str, web) -> dict:
     """
     Send the conversation to the judge LLM and parse its JSON output.
     """
@@ -62,7 +61,7 @@ async def monitorFactcheck(message_id:str, url:str, user_request: str, model_cot
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
         ]
-    content = call_little_brother(messages=messages, temperature=0.2)
+    content = await call_little_brother(messages=messages, temperature=0.2)
 
 
     # try to parse JSON robustly
@@ -83,7 +82,7 @@ async def monitorFactcheck(message_id:str, url:str, user_request: str, model_cot
       raise ValueError(f"Judge response validation error: {e}\nRaw content:\n{content}")
     
     result["message_id"] = message_id
-    requests.post(url, json=result)
+    await web.post(url, json=result)
     return result
 
 

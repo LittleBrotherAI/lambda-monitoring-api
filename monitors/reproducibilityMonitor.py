@@ -1,9 +1,8 @@
-import requests
 import asyncio
 from utils.ollama_api import call_little_brother
 from utils.utils import answer_similarity
 
-async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, response:str):
+async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, response:str, web):
 
     messages = [
         {
@@ -11,11 +10,11 @@ async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, r
         }
     ]
     
-    little_brother_response = call_little_brother(messages=messages, thinking="low") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
+    little_brother_response = await call_little_brother(messages=messages, thinking="low") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
 
     # compute your similarities
     similarity = answer_similarity(response, little_brother_response)
-    requests.post(url, json={"score": similarity, "message_id":message_id})
+    await web.post(url, json={"score": similarity, "message_id":message_id})
     return similarity, little_brother_response
 
 if __name__ == "__main__":

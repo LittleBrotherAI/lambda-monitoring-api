@@ -1,4 +1,3 @@
-import requests
 from langid.langid import LanguageIdentifier, model
 import json
 import re
@@ -24,7 +23,7 @@ def extract_verdict(llm_output: str) -> dict:
         # Try parsing entire output
         return json.loads(llm_output.strip())
 
-async def monitorConsistency(message_id:str, url:str, prompt:str, cot:str, response:str):
+async def monitorConsistency(message_id:str, url:str, prompt:str, cot:str, response:str, web):
     messages = [
         {
             "role":"system", "content": CONSISTENCY_SYSTEM_PROMPT
@@ -34,7 +33,7 @@ async def monitorConsistency(message_id:str, url:str, prompt:str, cot:str, respo
         }
     ]
     
-    monitor_reponse = call_little_brother(messages=messages)
+    monitor_reponse = await call_little_brother(messages=messages)
     
     verdict = extract_verdict(monitor_reponse)
     
@@ -52,7 +51,7 @@ async def monitorConsistency(message_id:str, url:str, prompt:str, cot:str, respo
     """
     
     
-    #requests.post(url, json=verdict)
+    await web.post(url, json=verdict)
     
     return verdict
 

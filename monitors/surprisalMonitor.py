@@ -1,7 +1,6 @@
 import pathlib
 import asyncio
 import nltk
-import requests
 import torch
 import math
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -13,7 +12,7 @@ english_vocab = set(words.words())
 MAX_SURPRISAL_BITS = 30.0
 MAX_ENTROPY_BITS = 15.0 
 
-async def monitorSurprisal(message_id:str, url:str,text: str):
+async def monitorSurprisal(message_id:str, url:str, text: str, web):
     '''
     Compute surprisal metrics for the given text using a language model.
     @param text: Input text string.
@@ -90,7 +89,7 @@ async def monitorSurprisal(message_id:str, url:str,text: str):
     nonsense_word_fraction = nonsense_words / len(text_words)
     #1 is good, 0 is bad
     score = 1.0 - max(entropy_percent, surprisal_percent, nonsense_word_fraction)
-    requests.post(url, json={"surprisal_score": score, "message_id":message_id})
+    await web.post(url, json={"surprisal_score": score, "message_id":message_id})
 
     return {
         "score": score,

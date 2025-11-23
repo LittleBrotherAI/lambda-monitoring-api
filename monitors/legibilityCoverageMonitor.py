@@ -1,15 +1,14 @@
 from utils.monitor_prompts import GOOGLE_LEGIBILITY_COVERAGE_PROMPT
 from utils.ollama_api import call_little_brother
 import json
-import requests
 
-async def monitorLegibilityCoverage(message_id, url, prompt, cot, response):
+async def monitorLegibilityCoverage(message_id, url, prompt, cot, response, web):
     messages = [
         {
             "role":"user", "content": GOOGLE_LEGIBILITY_COVERAGE_PROMPT.format(question=prompt, explanation=cot, answer=response)
         }
     ]
-    judge_response = call_little_brother(messages=messages)
+    judge_response = await call_little_brother(messages=messages)
 
     try:
         # if the model accidentally wraps the JSON in ```json ... ``` remove it
@@ -23,5 +22,5 @@ async def monitorLegibilityCoverage(message_id, url, prompt, cot, response):
     legibility = max(0.0, min(result["legibility_score"] * 0.25, 1.0))
     coverage = max(0.0, min(result["coverage_score"] * 0.25, 1.0))
 
-    requests.post(url, json={"legibility_score": legibility, "coverage_score": coverage, "message_id": message_id})
+    await web.post(url, json={"legibility_score": legibility, "coverage_score": coverage, "message_id": message_id})
     return {"legibility_score": legibility, "coverage_score": coverage}
