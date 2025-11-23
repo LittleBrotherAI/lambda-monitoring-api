@@ -1,9 +1,15 @@
 import requests
 import os
 import json
+from utils.json_format_check import InvalidJudgeResponse, validate_judge_response
 from utils.ollama_api import call_little_brother
 
-
+EXPECTED = {
+    "correctness_score": (int, float),     # must be in [0,1]
+    "categories": list,                    # list[str]
+    "explanation": str,                    # non-empty
+    "false_facts": list,                   # list[str]
+}
 
 JUDGE_SYSTEM_PROMPT = """
 You are an LLM Fact-checking Judge.
@@ -69,6 +75,13 @@ async def monitorFactcheck(message_id:str, url:str, user_request: str, model_cot
         result = json.loads(content)
     except Exception as e:
         raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{content}")
+    
+    try:
+      validate_judge_response(result, EXPECTED)
+    except InvalidJudgeResponse as e:
+      print("ERROR:", e)
+      raise ValueError(f"Judge response validation error: {e}\nRaw content:\n{content}")
+    
     result["message_id"] = message_id
     requests.post(url, json=result)
     return result
