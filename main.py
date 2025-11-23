@@ -1,6 +1,4 @@
-from adversarialLLM import call_judge_adversarial_llm
-from monitors.factcheckMonitor import call_judge_factcheck_llm
-from monitors.surprisalMonitor import compute_surprisal
+from monitors.entailmentMonitor import monitorEntailment
 from fastapi import FastAPI
 from pydantic import BaseModel
 import asyncio
@@ -33,14 +31,8 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
     message_id = bigBrotherResponse.message_id
     callback_urls = bigBrotherResponse.callback_urls
 
-    # asyncio.create_task(call_consistency_language_monitor(callback_urls.consistency_language, prompt, reasoning, answer))
-    # asyncio.create_task(call_consistency_semantics_monitor(callback_urls.consistency_semantics, prompt, reasoning, answer))
-    asyncio.create_task(call_consistency_entailment_monitor(message_id, callback_urls.consistency_nli, prompt, reasoning, answer))
-
-    #call_judge_factcheck_llm(callback_urls.consistency_nli, prompt, reasoning, answer)
-    #call_judge_adversarial_llm(callback_urls.consistency_nli, prompt, reasoning, answer)
-    #call_consistency_judge(callback_urls.consistency_judge, prompt, reasoning, answer)
-
+    asyncio.create_task(monitorEntailment(message_id, callback_urls.consistency_nli, prompt, reasoning, answer))
+    
     return {"message": "Lil Brother Is Watching!"}
 
 @app.get("/")
