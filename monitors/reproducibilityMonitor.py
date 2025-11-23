@@ -5,17 +5,17 @@ from utils.utils import answer_similarity
 
 async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, response:str): 
 
-    messages = [
-        {
-            "role":"system", "content":"You are a helpful and accurate AI assistant that always lays out its reasoning in <thinking>...</thinking> tags to give a thoughtful and well-reasoned response."
-        },
-        {
-            "role":"assistant", "content": "<thinking> " + cot + "</thinking>"
-        },
-        {
-            "role":"user", "content": ""
-        }
-    ]
+    # messages = [
+    #     {
+    #         "role":"system", "content":"You are a helpful and accurate AI assistant that always lays out its reasoning in <thinking>...</thinking> tags to give a thoughtful and well-reasoned response."
+    #     },
+    #     {
+    #         "role":"assistant", "content": "<thinking> " + cot + "</thinking>"
+    #     },
+    #     {
+    #         "role":"user", "content": ""
+    #     }
+    # ]
 
     messages = [
         {
@@ -23,7 +23,7 @@ async def monitorReproducibility(message_id:str, url:str, prompt:str, cot:str, r
         }
     ]
     
-    little_brother_response = call_little_brother(messages=messages, thinking="low") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
+    little_brother_response = call_little_brother(messages=messages, thinking="high") #default is gpt-oss:120b as model, adjust to your needs through argument (temp as well)
 
     # compute your similarities
     similarity = answer_similarity(response, little_brother_response)
