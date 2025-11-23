@@ -58,6 +58,3 @@ def sample_random_snippets(input_string:str, number_snippets:int = 5, min_length
         snippets.append(snippet)
     
     return snippets
-
-if __name__ == "__main__":
-    sample_random_snippets("I am")
