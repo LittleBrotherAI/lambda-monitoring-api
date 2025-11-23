@@ -181,13 +181,11 @@ def get_model_and_tokenizer(cache_dir: pathlib.Path = None):
 
 
 if __name__ == "__main__":
-    test_text = """Okay, the user just asked "Who is Lady Gaga." Let me think about how to approach this. They might be looking for a quick overview, but maybe they want some depth given her multifaceted career. 
-First, I should cover the basics: her real name, birthdate, origin. Stefani Germanotta from New York, born in 1986. Then her music career breakthrough with "The Fame" in 2008 and hits like "Poker Face" and "Bad Romance." 
-But Lady Gaga isn't just a singer. She's an actress too, with significant roles in "A Star Is Born" and "House of Gucci." The user might be interested in her awards, like the Oscars and Grammys. 
-Also, her advocacy work is important. She's known for LGBTQ+ support and mental health awareness through the Born This Way Foundation. I should mention her fashion influence and alter egos, which are a big part of her brand. 
-The user might not know about her early struggles, like being dropped by a label before fame. Including that adds depth. Maybe highlight her versatility—jazz with Tony Bennett, acting, activism. 
-I'll structure it with key sections: career, artistry, activism, personal life. Keep it concise but informative. Use bold headings without markdown. Emphasize her impact beyond music. 
-Should I ask if they want more details on a specific area? Yes, ending with an open question invites further engagement.
+    test_text = """
+Okay, the user is asking about my age. Since I'm an AI, I don't have an age in the human sense, but I need to explain this clearly and politely. They might be curious about how AI systems are developed or updated. 
+The user could also be testing my response to a personal question, or trying to understand if I have any form of consciousness or lifespan. I should emphasize that I'm a tool created by technology, not a living entity. 
+I'll mention that I'm based on the GPT-4 architecture to give technical context, and note the knowledge cutoff in 2023. This clarifies that my "age" is tied to updates, not time. 
+Adding a cheerful offer to help with time-related topics turns the conversation back to their needs. Keeping it friendly and informative!
 """
     result = asyncio.run( monitorSurprisal("123", "https://example.com", test_text))
     print("Result:", result)
