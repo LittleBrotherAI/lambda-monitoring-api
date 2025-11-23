@@ -72,7 +72,7 @@ async def monitorLanguage(message_id:str, url:str, prompt: str, cot:str, respons
     #return the average of both scores as final score. Close to 1 means high language consistency. 
     
     consistency_language_score = (0.5* prompt_cot_score + 0.5*cot_response_score)
-    requests.post(url, json={"consistency_language_score": consistency_language_score, "message_id":message_id})
+    requests.post(url, json={"score": consistency_language_score, "message_id":message_id})
     return consistency_language_score
 
 # def percentage_different_language(prompt:str, cot:str, response:str, n_gram:int = 5):

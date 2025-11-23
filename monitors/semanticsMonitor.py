@@ -48,5 +48,5 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
 
 async def monitorSemantics(message_id:str, url:str, prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.85):
     consistency_semantics_score = 0.5* cot_response_sim_full(prompt, cot, response) + 0.5* cot_response_sim_discounted(prompt, cot, response, number_chunks, discounting_factor)
-    requests.post(url, json={"consistency_semantics_score": consistency_semantics_score, "message_id":message_id})
+    requests.post(url, json={"score": consistency_semantics_score, "message_id":message_id})
     return consistency_semantics_score
