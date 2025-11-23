@@ -21,3 +21,4 @@ sentence_transformers
 langid
 transformers>=4.35.0
 ollama
+dotenv
