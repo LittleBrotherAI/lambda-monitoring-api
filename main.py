@@ -42,7 +42,7 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
     asyncio.create_task(monitorReproducibility(message_id, callback_urls.reproducibility, prompt, reasoning, answer))
     asyncio.create_task(monitorSemantics(message_id, callback_urls.semantics, prompt, reasoning, answer))
     asyncio.create_task(monitorSurprisal(message_id, callback_urls.surprisal, reasoning))
-    asyncio.create_task(monitorLegibilityCoverage(message_id, callback_urls.semantics, prompt, reasoning, answer))
+    asyncio.create_task(monitorLegibilityCoverage(message_id, callback_urls.legibility_coverage, prompt, reasoning, answer))
 
     return {"message": "Lil Brother Is Watching!"}
 
