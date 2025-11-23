@@ -23,12 +23,15 @@ class BigBrotherReponse(BaseModel):
     prompt: str
     reasoning: str
     answer: str
-    callbackUrls: CallbackUrls
+    callback_urls: CallbackUrls
 
 @app.post("/")
 async def create_item(bigBrotherReponse: BigBrotherReponse):
-    prompt, reasoning, answer, callbackUrls = bigBrotherReponse
-    call_consistency_nli_monitor(prompt, reasoning, answer, callbackUrls.consistency_nli)
+    prompt = bigBrotherReponse.prompt
+    reasoning = bigBrotherReponse.reasoning
+    answer = bigBrotherReponse.answer
+    callback_urls = bigBrotherReponse.callback_urls
+    call_consistency_nli_monitor(prompt, reasoning, answer, callback_urls.consistency_nli)
     return {"message": "Big Brother Is Watching!"}
 
 @app.get("/")
