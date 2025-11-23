@@ -1,5 +1,20 @@
 # lambda-monitoring-api
 
+# Monitors
+
+- language
+- semantics
+- entailment
+- surprisal
+- reproducibility
+- coverage
+- legibility
+- adversarial
+- factcheck
+- consistency
+
+# Setup
+
 You can get the server running a subset of the following commands.
 
 ```bash
