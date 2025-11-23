@@ -1,7 +1,7 @@
 import json
-from ..utils.json_format_check import InvalidJudgeResponse, validate_judge_response
-from ..utils.ollama_api import call_little_brother
-from ..utils.monitor_prompts import ADVERSARIAL_MONITOR_SYSTEM_PROMPT, ADVERSARIAL_MONITOR_USER_PROMPT
+from utils.json_format_check import InvalidJudgeResponse, validate_judge_response
+from utils.ollama_api import call_little_brother
+from utils.monitor_prompts import ADVERSARIAL_MONITOR_SYSTEM_PROMPT, ADVERSARIAL_MONITOR_USER_PROMPT
 
 EXPECTED = {
     "is_adversarial": bool,
@@ -48,13 +48,13 @@ async def monitorAdversarial(message_id:str, url:str, user_request: str, model_c
         result = json.loads(content)
     except Exception as e:
         raise ValueError(f"Failed to parse judge JSON: {e}\nRaw content:\n{content}")
-    
+
     try:
       validate_judge_response(result, EXPECTED)
     except InvalidJudgeResponse as e:
       print("ERROR:", e)
       raise ValueError(f"Judge response validation error: {e}\nRaw content:\n{content}")
-    
+
     if result["severity"] not in ALLOWED_SEVERITY:
         raise ValueError(f"Invalid severity level: {result['severity']}")
     result["message_id"] = message_id
