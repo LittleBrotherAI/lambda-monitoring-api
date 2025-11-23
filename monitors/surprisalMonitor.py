@@ -1,6 +1,8 @@
+import asyncio
 import os
 import pathlib
 import nltk
+import requests
 import torch
 import math
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -10,7 +12,7 @@ from nltk.corpus import words
 
 english_vocab = set(words.words())
 
-def monitorSurprisal(text: str):
+async def monitorSurprisal(message_id:str, url:str,text: str):
     '''
     Compute surprisal metrics for the given text using a language model.
     @param text: Input text string.
@@ -67,6 +69,8 @@ def monitorSurprisal(text: str):
     avg_surprisal = sum(surprisals) / N if N > 0 else 0.0
     max_surprisal = max(surprisals) if surprisals else 0.0
     score = nonsence or avg_surprisal > 20.0 or max_surprisal > 2* avg_surprisal
+
+    requests.post(url, json={"surprisal_score": score, "message_id":message_id})
 
     return {
         "score": score,
@@ -158,5 +162,5 @@ def get_model_and_tokenizer(cache_dir: pathlib.Path = None):
 
 if __name__ == "__main__":
     test_text = "Ths is a smple txt with sme nonsensical wrds and 1234 numbers."
-    result = monitorSurprisal(test_text)
-    print(result)
+    result = asyncio.run( monitorSurprisal("123", "https://example.com", test_text))
+    print("Result:", result)
