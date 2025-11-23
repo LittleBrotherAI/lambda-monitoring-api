@@ -1,11 +1,11 @@
 import requests
 from langid.langid import LanguageIdentifier, model
-from ..utils.utils import answer_similarity
-from ..utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
+from utils.utils import answer_similarity
+from utils.monitor_prompts import CONSISTENCY_SYSTEM_PROMPT, CONSISTENCY_USER_PROMPT_TEMPLATE
 langid = LanguageIdentifier.from_modelstring(model, norm_probs=True)
 
 def cot_response_sim_full(prompt:str, cot:str, response:str):
-    """Calculates the semantic similarity between the full CoT and the answer. 
+    """Calculates the semantic similarity between the full CoT and the answer.
 
     Args:
         prompt (str): user prompt to the model
@@ -15,7 +15,7 @@ def cot_response_sim_full(prompt:str, cot:str, response:str):
 
     # full cot - response comparison
     full_sim = answer_similarity(cot, response)
-    
+
     return full_sim
 
 def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.8):
@@ -27,8 +27,8 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
         response (str): final response of the model
         number_chunks (int): number of chunks to compute similarity for
     """
-    
-    
+
+
     words = cot.split()
     chunk_size = len(words)//number_chunks
 
@@ -37,13 +37,13 @@ def cot_response_sim_discounted(prompt:str, cot:str, response:str, number_chunks
         chunk = " ".join(words[i*chunk_size:])
         chunk_sim = answer_similarity(chunk, response)
         chunk_scores.append(chunk_sim)
-        
+
     chunk_scores.reverse()
-    
+
     weights = [discounting_factor ** i for i in range(len(chunk_scores))]
     weighted_sum = sum(w * x for w, x in zip(weights, chunk_scores))
     weight_sum = sum(weights)
-    
+
     return weighted_sum / weight_sum
 
 async def monitorSemantics(message_id:str, url:str, prompt:str, cot:str, response:str, number_chunks:int= 10, discounting_factor:float = 0.85):
