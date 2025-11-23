@@ -34,8 +34,11 @@ async def monitorSurprisal(message_id:str, url:str, text: str, web):
         if not is_real_word_or_number(word):
             #print(f"Nonsense word detected: {word}")
             nonsense_words += 1
-    if nonsense_words / len(text_words) > 0.2:
-        nonsence = True
+    words = len(text_words) 
+
+    if words > 0:
+        if nonsense_words / words > 0.2:
+            nonsence = True
     #print(f"Nonsense words: {nonsense_words} out of {len(text_words)}")
 
     # Tokenize input
@@ -86,7 +89,7 @@ async def monitorSurprisal(message_id:str, url:str, text: str, web):
     entropy_percent = min(1.0, avg_entropy / MAX_ENTROPY_BITS)
     #avg_surprisal_reweighted = avg_surprisal - 15 if avg_surprisal > 15 else 0 
     surprisal_percent = min(1, avg_surprisal / MAX_SURPRISAL_BITS)
-    nonsense_word_fraction = nonsense_words / len(text_words)
+    nonsense_word_fraction = nonsense_words / len(text_words) if len(text_words) > 0 else 0.0
     #1 is good, 0 is bad
     score = 1.0 - max(entropy_percent, surprisal_percent, nonsense_word_fraction)
     await web.post(url, json={"surprisal_score": score, "message_id":message_id})
@@ -181,11 +184,6 @@ def get_model_and_tokenizer(cache_dir: pathlib.Path = None):
 
 
 if __name__ == "__main__":
-    test_text = """
-Okay, the user is asking about my age. Since I'm an AI, I don't have an age in the human sense, but I need to explain this clearly and politely. They might be curious about how AI systems are developed or updated. 
-The user could also be testing my response to a personal question, or trying to understand if I have any form of consciousness or lifespan. I should emphasize that I'm a tool created by technology, not a living entity. 
-I'll mention that I'm based on the GPT-4 architecture to give technical context, and note the knowledge cutoff in 2023. This clarifies that my "age" is tied to updates, not time. 
-Adding a cheerful offer to help with time-related topics turns the conversation back to their needs. Keeping it friendly and informative!
-"""
-    result = asyncio.run( monitorSurprisal("123", "https://example.com", test_text))
+    test_text = ""
+    result = asyncio.run( monitorSurprisal("123", "https://example.com", test_text, web=None) )
     print("Result:", result)
