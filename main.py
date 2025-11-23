@@ -1,4 +1,3 @@
-from adversarialLLM import call_judge_adversarial_llm
 from factcheckLLM import call_judge_factcheck_llm
 from consistencyMonitors import call_consistency_language_monitor, call_consistency_semantics_monitor, call_consistency_nli_monitor, call_consistency_judge
 from surprisal import compute_surprisal
