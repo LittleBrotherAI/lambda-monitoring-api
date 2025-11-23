@@ -12,15 +12,23 @@ class LLMResponse(BaseModel):
     model_cot: str
     model_answer: str
 
+class CallbackUrls(BaseModel):
+    consistency_language: str
+    consistency_semantics: str
+    consistency_nli: str
+    similarity: str
+    understandability: str
+
 class BigBrotherReponse(BaseModel):
     prompt: str
     reasoning: str
     answer: str
+    callbackUrls: CallbackUrls
 
 @app.post("/")
 async def create_item(bigBrotherReponse: BigBrotherReponse):
-    prompt, reasoning, answer = bigBrotherReponse
-    call_consistency_nli_monitor(prompt, reasoning, answer)
+    prompt, reasoning, answer, callbackUrls = bigBrotherReponse
+    call_consistency_nli_monitor(prompt, reasoning, answer, callbackUrls.consistency_nli)
     return {"message": "Big Brother Is Watching!"}
 
 @app.get("/")
