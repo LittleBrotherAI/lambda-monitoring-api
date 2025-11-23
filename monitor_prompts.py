@@ -39,7 +39,7 @@ You MUST respond with valid JSON in exactly this format:
 
 
 # User prompt template
-USER_PROMPT_TEMPLATE = """Please analyze the consistency between the chain-of-thought reasoning and the final response.
+CONSISTENCY_USER_PROMPT_TEMPLATE = """Please analyze the consistency between the chain-of-thought reasoning and the final response.
 
 **Original User Question:**
 {user_prompt}
