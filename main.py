@@ -57,6 +57,6 @@ async def create_item(bigBrotherResponse: BigBrotherReponse):
 
     return {"message": "Lil Brother Is Watching!"}
 
-@app.get("/")
-def hello():
-    return {"message": "hi!"}
+# @app.get("/")
+# def hello():
+#     return {"message": "hi!"}
