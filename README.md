@@ -13,7 +13,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 sudo su
 source .venv/bin/activate
-uvicorn main:app --host 0.0.0.0 --port 80
+uvicorn main:app --host 0.0.0.0 --port 80 > server.logs 2>&1 
 ```
 
 Then the server will be running! You can test the connection with `curl http://<ip-address>:80/` and should get a welcome message :)
