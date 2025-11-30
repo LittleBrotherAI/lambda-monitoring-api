@@ -1,5 +1,7 @@
 # lambda-monitoring-api
 
+I am shutting the backend down now. If you want to try and test our project please send me a mail, and I'll host it again for a bit. ~Tarik
+
 # Monitors
 
 - language
